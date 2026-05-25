@@ -51,10 +51,23 @@ def train(
     print("\nClassification Report:")
     print(classification_report(y_test, y_pred))
 
+    feature_names = list(X.columns)
+    coefficients = model.coef_[0]
+    importance = sorted(
+        zip(feature_names, coefficients),
+        key=lambda pair: abs(pair[1]),
+        reverse=True,
+    )
+    print("\nTop 5 Feature Importances (by |coefficient|):")
+    print(f"  {'Feature':<20} {'Coefficient':>12}")
+    print(f"  {'-'*20} {'-'*12}")
+    for name, coef in importance[:5]:
+        print(f"  {name:<20} {coef:>12.4f}")
+
     model_path.parent.mkdir(parents=True, exist_ok=True)
     with open(model_path, "wb") as f:
         pickle.dump(model, f)
-    print(f"Model saved to {model_path}")
+    print(f"\nModel saved to {model_path}")
 
     return model
 

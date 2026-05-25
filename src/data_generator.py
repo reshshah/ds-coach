@@ -34,12 +34,17 @@ def generate_ctr_data(n_rows: int = 10_000, random_seed: int = 42) -> pd.DataFra
         p=[0.60, 0.30, 0.10],
     )
 
-    # Base CTR ~15%; simple feature interactions lift/lower probability.
-    base_prob = 0.15
-    age_factor = np.where(user_age < 35, 0.05, -0.02)
-    device_factor = np.where(device_type == "mobile", 0.05, 0.0)
-    time_factor = np.where(time_of_day == "evening", 0.04, 0.0)
-    click_prob = np.clip(base_prob + age_factor + device_factor + time_factor, 0.0, 1.0)
+    # Rule-based click probability with strong feature interactions.
+    # Interaction rules are applied in priority order; the highest-matching
+    # probability wins so the signal is intentionally learnable.
+    click_prob = np.full(n_rows, 0.10)  # default 10%
+
+    evening_mobile = (time_of_day == "evening") & (device_type == "mobile")
+    click_prob = np.where(evening_mobile, 0.50, click_prob)
+
+    electronics_young = (ad_category == "electronics") & (user_age < 35)
+    click_prob = np.where(electronics_young, 0.60, click_prob)
+
     clicked = rng.binomial(1, click_prob).astype(int)
 
     return pd.DataFrame(
