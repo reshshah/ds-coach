@@ -113,3 +113,11 @@ git pull
 git add .
 git commit -m "describe what you did"
 git push
+
+What each command does:
+git status             Shows what files changed
+git add .              Stages all changes for commit
+git commit -m "msg"    Saves a snapshot locally
+git push               Sends snapshot to GitHub
+git pull               Gets latest from GitHub
+git log --oneline      Shows your commit history
