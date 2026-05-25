@@ -104,3 +104,12 @@ git push -u origin main
 
 echo ""
 echo "Done. Open VS Code with: code $PROJECT_DIR"
+
+Your daily workflow from here
+# Start of day -- pull latest
+git pull
+
+# End of day -- push your work
+git add .
+git commit -m "describe what you did"
+git push
