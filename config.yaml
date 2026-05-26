@@ -1,0 +1,11 @@
+paths:
+  data: data/processed/ctr_data.csv
+  features_dir: data/processed
+  lr_model: models/ctr_model.pkl
+  xgb_model: models/ctr_xgboost.pkl
+
+model:
+  n_rows: 10000
+  test_size: 0.2
+  xgb_n_estimators: 100
+  xgb_max_depth: 4

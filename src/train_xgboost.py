@@ -1,19 +1,19 @@
-"""Train a Logistic Regression CTR model and persist the artifact."""
+"""Train an XGBoost CTR model and persist the artifact."""
 
 import pickle
 from pathlib import Path
 
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from xgboost import XGBClassifier
 
 from evaluate import evaluate_model
 from features import load_and_encode
 
 
 DATA_PATH = Path(__file__).parents[1] / "data" / "processed" / "ctr_data.csv"
-MODEL_PATH = Path(__file__).parents[1] / "models" / "ctr_model.pkl"
+MODEL_PATH = Path(__file__).parents[1] / "models" / "ctr_xgboost.pkl"
 
 
 def train(
@@ -22,10 +22,10 @@ def train(
     test_size: float = 0.2,
     random_state: int = 42,
 ) -> tuple[Pipeline, float]:
-    """Train a scaled Logistic Regression pipeline on CTR data and save it.
+    """Train an XGBoost pipeline on CTR data and save it.
 
-    StandardScaler is embedded in the pipeline so coefficients are comparable
-    across features and the artifact is self-contained for inference.
+    StandardScaler is included for consistency with the LR baseline, though
+    tree-based models are invariant to monotonic feature transformations.
 
     Args:
         data_path: Path to the processed CSV file.
@@ -44,13 +44,19 @@ def train(
 
     pipeline = Pipeline([
         ("scaler", StandardScaler()),
-        ("model", LogisticRegression(
-            max_iter=1000, random_state=random_state, class_weight="balanced"
+        ("model", XGBClassifier(
+            n_estimators=100,
+            max_depth=4,
+            learning_rate=0.1,
+            scale_pos_weight=4,
+            random_state=random_state,
+            eval_metric="logloss",
+            verbosity=0,
         )),
     ])
     pipeline.fit(X_train, y_train)
 
-    auc = evaluate_model(pipeline, X_test, y_test, "Logistic Regression")
+    auc = evaluate_model(pipeline, X_test, y_test, "XGBoost")
 
     model_path.parent.mkdir(parents=True, exist_ok=True)
     with open(model_path, "wb") as f:
