@@ -374,7 +374,7 @@ Primary hubs: San Francisco Bay Area and New York/New Jersey</div>
 </div>
 
 <script>
-var API_KEY = 'ANTHROPIC_API_KEY';
+var API_URL = '/api/proxy'; // key lives on Netlify, never in the browser
 var APP_PIN = '2025'; // ← change this to your PIN
 
 function checkPin() {
@@ -511,9 +511,9 @@ function startSession(day, color) {
   sessLoading = true; document.getElementById('sessSendBtn').disabled = true;
   appendSessMsg('assistant', '...');
   var opener = 'Start my Day ' + day.day + ' coaching session on: "' + day.topic + '". ' + day.summary + '. Begin with a brief framing of what we will cover today, then ask me your first coaching question to assess where I stand.';
-  fetch('/api/proxy', {
+  fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: {'Content-Type':'application/json','x-api-key':API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+    headers: {'Content-Type':'application/json'},
     body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:PLAN_SYSTEM,messages:[{role:'user',content:opener}]})
   }).then(function(r) { return r.json(); }).then(function(data) {
     var text = (data.content && data.content.find(function(b){return b.type==='text';})) ? data.content.find(function(b){return b.type==='text';}).text : "Let's begin!";
@@ -536,7 +536,7 @@ function sendSessionMsg() {
   appendSessMsg('assistant', '...');
   fetch('/api/proxy', {
     method: 'POST',
-    headers: {'Content-Type':'application/json','x-api-key':API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+    headers: {'Content-Type':'application/json'},
     body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:PLAN_SYSTEM,messages:sessionHistory})
   }).then(function(r) { return r.json(); }).then(function(data) {
     var reply = (data.content && data.content.find(function(b){return b.type==='text';})) ? data.content.find(function(b){return b.type==='text';}).text : '...';
@@ -678,7 +678,7 @@ function adsGetResponse() {
   var sys = 'You are an elite interview coach for Director-level Data Science roles on Applied AI teams at Walmart, Google, and Amazon. Current question: "' + adsCurrentQ.question + '". Question type: ' + adsCurrentQ.type + '. Target company: ' + adsCurrentQ.company + '. Applied AI teams build agentic AI, ML forecasting, mathematical optimization, and gen AI systems at massive retail scale. Be Socratic - push deeper with follow-ups rather than giving answers. Be direct about gaps. For ML System Design evaluate: problem framing, technical depth, scalability, measurement rigor. For Strategy: structured thinking, prioritization, stakeholder awareness, execution realism. For Behavioral: STAR structure, specificity, scope of impact, leadership signal. Start with 1-2 genuine strengths, then specific gaps, then follow-up questions. End with: Structure: X/10  Depth: X/10  Business: X/10  Communication: X/10. Keep under 300 words unless a model answer is requested.';
   fetch('/api/proxy', {
     method: 'POST',
-    headers: {'Content-Type':'application/json','x-api-key':API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+    headers: {'Content-Type':'application/json'},
     body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:adsHistory})
   }).then(function(r) { return r.json(); }).then(function(data) {
     var reply = (data.content && data.content.find(function(b){return b.type==='text';})) ? data.content.find(function(b){return b.type==='text';}).text : 'Something went wrong.';
