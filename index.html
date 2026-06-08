@@ -10,331 +10,207 @@
 :root{
 --ink:#111;--ink2:#333;--ink3:#777;
 --paper:#fff;--paper2:#f7f7f7;--paper3:#eee;
---accent:#c94a00;--accent2:#1a3a2a;--accent3:#e8a020;
---indigo:#4F46E5;--teal:#0891B2;--green:#059669;--red:#DC2626;
+--accent:#c94a00;--indigo:#4F46E5;--teal:#0891B2;--green:#059669;--red:#DC2626;--amber:#e8a020;
 --border:1px solid #e0e0e0;
 --mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);min-height:100vh}
-input,button,textarea{font-family:inherit}
-button{cursor:pointer}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--paper3);border-radius:2px}
-.app-header{border-bottom:var(--border);padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;background:var(--paper);position:sticky;top:0;z-index:10;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.logo{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink3);text-transform:uppercase}
+button,input,textarea{font-family:inherit;cursor:pointer}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--paper3);border-radius:2px}
+/* HEADER */
+.app-header{border-bottom:var(--border);padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.logo{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 .logo span{color:var(--accent);font-weight:500}
-.nav-tabs{display:flex;gap:4px;flex-wrap:wrap}
-.nav-tab{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border:var(--border);border-radius:4px;background:transparent;color:var(--ink3);cursor:pointer;transition:all .15s}
-.nav-tab:hover{color:var(--ink2);border-color:var(--ink2)}
+.nav-tabs{display:flex;gap:3px;flex-wrap:wrap}
+.nav-tab{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border:var(--border);border-radius:4px;background:transparent;color:var(--ink3);transition:all .15s}
+.nav-tab:hover{color:var(--ink);border-color:var(--ink)}
 .nav-tab.active{color:#fff;background:var(--ink);border-color:var(--ink)}
 .page{display:none}
-.home-wrap,.coach-wrap,.role-wrap,.history-wrap{max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.home-hero{margin-bottom:2.5rem}
-.home-hero h1{font-size:2rem;font-weight:600;line-height:1.25;margin-bottom:.5rem}
-.home-hero p{font-size:14px;color:var(--ink3);line-height:1.7;max-width:480px}
-.tool-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem}
-@media(max-width:520px){.tool-cards{grid-template-columns:1fr}}
-.tool-card{background:var(--paper2);border:var(--border);border-radius:8px;padding:1.5rem;cursor:pointer;transition:all .15s;text-align:left}
-.tool-card:hover{border-color:var(--accent);background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.tool-card-icon{font-size:1.75rem;margin-bottom:.75rem}
-.tool-card-title{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:.4rem}
-.tool-card-desc{font-size:13px;color:var(--ink3);line-height:1.55;margin-bottom:1rem}
-.tool-card-meta{display:flex;gap:6px;flex-wrap:wrap}
-.pill{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:3px}
-.pill-indigo{background:rgba(79,70,229,.08);color:var(--indigo)}
-.pill-teal{background:rgba(8,145,178,.08);color:var(--teal)}
-.pill-green{background:rgba(5,150,105,.08);color:var(--green)}
-.pill-red{background:rgba(220,38,38,.08);color:var(--red)}
-.pill-amber{background:rgba(232,160,32,.08);color:var(--accent3)}
-.pill-dark{background:rgba(15,15,15,.06);color:var(--ink2)}
-.progress-section{border-top:var(--border);padding-top:1.5rem}
-.progress-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem}
-.progress-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.progress-name{font-size:13px;color:var(--ink2)}
-.progress-val{font-family:var(--mono);font-size:11px;color:var(--ink3)}
-.progress-bar-wrap{height:5px;background:var(--paper3);border-radius:99px;margin-bottom:1rem;overflow:hidden}
-.progress-bar-fill{height:100%;border-radius:99px;transition:width .4s}
-.plan-header{margin-bottom:1.5rem}
-.plan-title{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:2px}
-.plan-sub{font-size:12px;color:var(--ink3);margin-bottom:14px}
-.prog-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px}
-.prog-track{height:5px;border-radius:99px;background:var(--paper3);overflow:hidden}
-.prog-fill{height:100%;border-radius:99px;background:var(--indigo);transition:width .4s}
-.week-block{margin-bottom:22px}
-.week-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-left:10px;border-left-width:3px;border-left-style:solid}
-.day-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border:var(--border);border-radius:6px;background:var(--paper);cursor:pointer;margin-bottom:5px;transition:all .15s}
-.day-row:hover:not(.rest){background:var(--paper2);box-shadow:0 1px 4px rgba(0,0,0,.05)}
+/* SHARED LAYOUT */
+.wrap{max-width:680px;margin:0 auto;padding:2rem 1.25rem 5rem}
+.page-title{font-size:1.5rem;font-weight:600;margin-bottom:.25rem}
+.page-sub{font-size:13px;color:var(--ink3);margin-bottom:1.75rem}
+.section-hdr{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;padding-left:8px;border-left:3px solid currentColor}
+/* HOME */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:2rem}
+.stat-card{background:var(--paper2);border:var(--border);border-radius:8px;padding:1rem;text-align:center}
+.stat-num{font-size:2rem;font-weight:700;color:var(--indigo);line-height:1}
+.stat-label{font-size:11px;color:var(--ink3);margin-top:4px;font-family:var(--mono)}
+.prog-bar-wrap{height:6px;background:var(--paper3);border-radius:99px;overflow:hidden;margin-bottom:4px}
+.prog-bar-fill{height:100%;border-radius:99px;transition:width .4s}
+.prog-row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:8px}
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1.5rem}
+.quick-card{background:var(--paper2);border:var(--border);border-radius:8px;padding:1.25rem;cursor:pointer;transition:all .15s;text-align:left}
+.quick-card:hover{border-color:var(--accent);background:#fff}
+.quick-card-icon{font-size:1.5rem;margin-bottom:.5rem}
+.quick-card-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.quick-card-sub{font-size:11px;color:var(--ink3)}
+/* 30-DAY PLAN */
+.week-block{margin-bottom:20px}
+.week-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-left:8px;border-left:3px solid}
+.day-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border:var(--border);border-radius:6px;background:#fff;cursor:pointer;margin-bottom:5px;transition:all .15s}
+.day-row:hover:not(.rest){background:var(--paper2)}
 .day-row.rest{cursor:default;opacity:.4}
+.day-row.done{background:#f0fdf4;border-color:#86efac}
 .day-num{font-family:var(--mono);font-size:10px;color:var(--ink3);min-width:36px}
-.day-icon{font-size:16px;min-width:22px}
+.day-icon{font-size:15px;min-width:20px}
 .day-info{flex:1}
 .day-topic{font-size:13px;font-weight:500;color:var(--ink)}
-.day-summary{font-size:11px;color:var(--ink3);margin-top:2px}
-.session-wrap{display:flex;flex-direction:column;height:calc(100vh - 49px);max-width:680px;margin:0 auto}
-.session-header{padding:10px 14px;border-bottom:var(--border);display:flex;align-items:center;gap:10px;background:var(--paper);flex-shrink:0;flex-wrap:wrap}
-.back-btn{background:none;border:none;font-size:20px;color:var(--ink3);padding:0 4px}
-.session-day-label{font-size:11px;color:var(--ink3);font-family:var(--mono)}
-.session-day-title{font-size:14px;font-weight:600;color:var(--ink)}
-.session-btns{margin-left:auto;display:flex;gap:6px;flex-shrink:0}
-.done-btn{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:1px solid #bbf7d0;border-radius:4px;background:#f0fdf4;color:#15803d}
-.summarize-btn{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:var(--border);border-radius:4px;background:var(--paper2);color:var(--ink3)}
-.summarize-btn:hover{border-color:var(--indigo);color:var(--indigo)}
-.session-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--paper2)}
-.smsg{display:flex;flex-direction:column;gap:3px;max-width:85%}
-.smsg.user{align-self:flex-end;align-items:flex-end}
-.smsg.assistant{align-self:flex-start}
-.smsg-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.smsg-bubble{padding:10px 14px;border-radius:8px;font-size:14px;line-height:1.7;white-space:pre-wrap}
-.smsg.user .smsg-bubble{background:var(--indigo);color:#fff;border-radius:8px 8px 2px 8px}
-.smsg.assistant .smsg-bubble{background:var(--paper);border:var(--border);border-radius:8px 8px 8px 2px;color:var(--ink)}
-.smsg-actions{display:flex;gap:6px;margin-top:4px}
-.audio-btn{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border:var(--border);border-radius:3px;background:var(--paper);color:var(--ink3);cursor:pointer;transition:all .12s}
+.day-meta{font-size:11px;color:var(--ink3);margin-top:1px}
+.day-status{font-size:12px}
+/* SESSION MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:100;display:none;align-items:flex-end;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:680px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.modal-header{padding:14px 16px;border-bottom:var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.modal-close{background:none;border:none;font-size:20px;color:var(--ink3);padding:0 4px}
+.modal-day-label{font-size:10px;color:var(--ink3);font-family:var(--mono)}
+.modal-day-title{font-size:14px;font-weight:600;color:var(--ink)}
+.modal-done-btn{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:1px solid #86efac;border-radius:4px;background:#f0fdf4;color:#15803d;flex-shrink:0}
+.modal-body{flex:1;overflow-y:auto;padding:16px}
+/* NOTES */
+.notes-section{margin-bottom:16px}
+.notes-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.notes-ta{width:100%;padding:10px 12px;border:var(--border);border-radius:6px;font-size:13px;line-height:1.65;color:var(--ink);background:var(--paper2);resize:vertical;min-height:80px;outline:none;transition:border-color .15s}
+.notes-ta:focus{border-color:var(--indigo)}
+.notes-ta::placeholder{color:var(--ink3)}
+.save-notes-btn{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border:var(--border);border-radius:4px;background:var(--paper2);color:var(--ink3);margin-top:6px;transition:all .15s}
+.save-notes-btn:hover{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+/* AUDIO */
+.audio-btn{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border:var(--border);border-radius:3px;background:#fff;color:var(--ink3);transition:all .12s;margin-top:6px}
 .audio-btn:hover{border-color:var(--indigo);color:var(--indigo)}
 .audio-btn.playing{border-color:var(--accent);color:var(--accent)}
-.session-input-area{padding:10px 14px;border-top:var(--border);background:var(--paper);display:flex;gap:8px;flex-shrink:0}
-.session-input{flex:1;padding:10px 12px;border:var(--border);border-radius:6px;font-size:14px;background:var(--paper2);color:var(--ink);outline:none;resize:none;min-height:42px;max-height:120px;line-height:1.5}
-.session-input:focus{border-color:var(--indigo)}
-.session-send{background:var(--indigo);color:#fff;border:none;border-radius:6px;padding:10px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;align-self:flex-end;transition:background .15s}
-.session-send:hover{background:#3730c0}
-.session-send:disabled{opacity:.35;cursor:not-allowed}
-#pageAds{height:calc(100vh - 49px);overflow:hidden}
-.ads-main{display:grid;grid-template-columns:260px 1fr;height:100%}
-@media(max-width:600px){.ads-main{grid-template-columns:1fr}}
-.ads-aside{border-right:var(--border);background:var(--paper2);display:flex;flex-direction:column;overflow:hidden}
-.aside-hdr{padding:1rem 1.25rem;border-bottom:var(--border);font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
-.q-bank{display:flex;flex-direction:column;gap:5px;flex:1;overflow-y:auto;padding:10px}
-.q-item{background:var(--paper);border:var(--border);border-radius:6px;padding:.65rem .9rem;cursor:pointer;transition:all .15s;position:relative}
-.q-item:hover{border-color:var(--accent)}
-.q-item.selected{border-color:var(--accent);background:#fff9f7}
-.q-type{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
-.q-type.ml{color:var(--accent2)}.q-type.behavioral{color:#7a3000}.q-type.strategy{color:#1a3a7a}
-.q-title{font-size:12px;line-height:1.4;color:var(--ink2)}
-.q-company{position:absolute;top:7px;right:7px;font-family:var(--mono);font-size:9px;color:var(--ink3)}
-.q-done-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent2);margin-right:4px;vertical-align:middle}
-.ads-content{display:flex;flex-direction:column;overflow:hidden}
-.ads-q-area{padding:1.5rem 2rem 1.25rem;border-bottom:var(--border);background:var(--paper);flex-shrink:0}
-.q-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem}
-.q-badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
-.badge-ml{background:rgba(26,58,42,.08);color:var(--accent2)}
+/* SESSION INFO BOX */
+.session-info-box{background:var(--paper2);border:var(--border);border-radius:8px;padding:14px;margin-bottom:16px;font-size:13px;line-height:1.7;color:var(--ink2)}
+.session-info-box h4{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.session-coaching-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:4px;background:var(--indigo);color:#fff;text-decoration:none}
+/* QUESTION BANK */
+.q-card{border:var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.q-card-header{padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;background:var(--paper2);transition:background .15s}
+.q-card-header:hover{background:var(--paper3)}
+.q-type-badge{font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0}
+.badge-ml{background:rgba(26,58,42,.08);color:#1a3a2a}
 .badge-behavioral{background:rgba(201,74,0,.08);color:var(--accent)}
 .badge-strategy{background:rgba(26,42,122,.08);color:#1a3a7a}
-.q-num{font-family:var(--mono);font-size:11px;color:var(--ink3)}
-.q-co-tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border:var(--border);border-radius:3px;color:var(--ink3);margin-left:auto}
-.q-text{font-size:1.05rem;line-height:1.65;color:var(--ink)}
-.hints-bar{padding:.65rem 2rem;border-bottom:var(--border);background:var(--paper2);display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;flex-shrink:0}
-.hints-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
-.hint-pill{font-family:var(--mono);font-size:11px;padding:3px 9px;border:var(--border);border-radius:3px;cursor:pointer;background:var(--paper);color:var(--ink2);transition:all .12s}
-.hint-pill:hover{border-color:var(--accent3);color:var(--accent3)}
-.hint-revealed{font-size:11px;color:var(--ink2);background:rgba(232,160,32,.08);border:1px solid rgba(232,160,32,.3);border-radius:3px;padding:3px 9px;font-family:var(--mono)}
-.ads-chat{flex:1;overflow-y:auto;padding:1.25rem 2rem;display:flex;flex-direction:column;gap:12px;background:var(--paper2)}
-.msg{display:flex;flex-direction:column;gap:4px;max-width:680px}
-.msg.user{align-self:flex-end;align-items:flex-end}
-.msg-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.msg-bubble{padding:.85rem 1rem;border-radius:8px;font-size:14px;line-height:1.7;max-width:560px}
-.msg.user .msg-bubble{background:var(--indigo);color:#fff;border-radius:8px 8px 2px 8px}
-.msg.assistant .msg-bubble{background:var(--paper);border:var(--border);border-radius:8px 8px 8px 2px;white-space:pre-wrap;color:var(--ink)}
-.msg-actions{display:flex;gap:6px;margin-top:2px}
-.score-bar{display:flex;gap:1rem;padding:.65rem 1rem;background:var(--paper);border:var(--border);border-radius:6px;font-family:var(--mono);font-size:11px;flex-wrap:wrap}
-.score-item{display:flex;flex-direction:column;gap:2px}
-.score-lbl{font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em}
-.score-val{font-size:13px}
-.score-val.good{color:var(--green)}.score-val.mid{color:var(--accent3)}.score-val.low{color:var(--accent)}
-.typing-indicator{display:flex;gap:4px;align-items:center;padding:.85rem 1rem;background:var(--paper);border:var(--border);border-radius:8px;width:fit-content}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--ink3);animation:bounce 1.2s infinite}
-.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
-@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-.ads-input-area{padding:.85rem 2rem 1.25rem;border-top:var(--border);background:var(--paper);flex-shrink:0}
-.input-wrap{display:flex;gap:.65rem;align-items:flex-end}
-.ads-textarea{flex:1;background:var(--paper2);border:var(--border);border-radius:6px;padding:.7rem .9rem;font-size:14px;color:var(--ink);resize:none;min-height:56px;max-height:140px;outline:none;transition:border-color .15s;line-height:1.5}
-.ads-textarea:focus{border-color:var(--indigo)}
-.ads-textarea::placeholder{color:var(--ink3)}
-.ads-send{background:var(--indigo);color:#fff;border:none;border-radius:6px;padding:.65rem 1.1rem;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .15s;height:42px;align-self:flex-end}
-.ads-send:hover{background:#3730c0}
-.ads-send:disabled{opacity:.35;cursor:not-allowed}
-.quick-btns{display:flex;gap:.6rem;margin-top:.5rem;flex-wrap:wrap}
-.quick-btn{font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:4px 10px;border:var(--border);border-radius:3px;cursor:pointer;background:transparent;color:var(--ink3);transition:all .12s}
-.quick-btn:hover{color:var(--indigo);border-color:var(--indigo)}
-.ads-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.65rem;color:var(--ink3);padding:2rem;text-align:center}
-.ads-empty .big{font-size:1.4rem;font-weight:500;color:var(--ink2)}
-.ads-empty .sub{font-family:var(--mono);font-size:11px;letter-spacing:.06em;max-width:280px;line-height:1.6}
-.role-wrap,.history-wrap{max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.req-item{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:var(--paper2);border:var(--border);border-radius:6px;font-size:14px;margin-bottom:6px}
+.q-card-title{font-size:13px;font-weight:500;color:var(--ink);flex:1}
+.q-card-co{font-family:var(--mono);font-size:9px;color:var(--ink3)}
+.q-card-chev{font-size:12px;color:var(--ink3);transition:transform .2s}
+.q-card-chev.open{transform:rotate(90deg)}
+.q-card-body{display:none;padding:14px;border-top:var(--border)}
+.q-card-body.open{display:block}
+.q-text{font-size:14px;line-height:1.7;color:var(--ink);margin-bottom:12px}
+.q-hints{margin-bottom:12px}
+.q-hint{font-size:12px;color:var(--ink3);padding:4px 0;border-bottom:1px solid var(--paper3);line-height:1.5}
+.q-hint:last-child{border-bottom:none}
+.q-hint::before{content:'→ ';color:var(--indigo)}
+.q-notes-wrap{margin-top:10px}
+.q-done-toggle{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:var(--border);border-radius:4px;background:transparent;color:var(--ink3);margin-top:8px;margin-right:6px}
+.q-done-toggle.done{background:#f0fdf4;color:#15803d;border-color:#86efac}
+/* HISTORY */
+.history-card{border:var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.history-card-hdr{padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;background:var(--paper2);transition:background .15s}
+.history-card-hdr:hover{background:var(--paper3)}
+.history-card-body{display:none;padding:14px;border-top:var(--border)}
+.history-card-body.open{display:block}
+.history-summary{background:var(--paper2);border:var(--border);border-radius:6px;padding:12px;font-size:13px;line-height:1.7;color:var(--ink2);white-space:pre-wrap;margin-bottom:10px}
+.history-notes-block{font-size:13px;line-height:1.65;color:var(--ink2);background:#fafafa;border:var(--border);border-radius:6px;padding:10px 12px;white-space:pre-wrap}
+/* TARGET ROLE */
+.req-item{display:flex;gap:10px;padding:10px 14px;background:var(--paper2);border:var(--border);border-radius:6px;font-size:13px;margin-bottom:6px;line-height:1.6}
 .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.75rem}
 .tech-card{padding:12px 14px;background:var(--paper2);border:var(--border);border-radius:6px}
 .tech-card-label{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:5px}
-.tech-card-text{font-size:13px;color:var(--ink2);line-height:1.6}
-.jd-box{background:var(--paper2);border:var(--border);border-radius:6px;padding:1.5rem;font-size:14px;color:var(--ink2);line-height:1.8;white-space:pre-wrap}
-.section-hdr{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;padding-left:10px;border-left-width:3px;border-left-style:solid}
-/* HISTORY */
-.history-empty{text-align:center;padding:4rem 2rem;color:var(--ink3)}
-.history-empty .big{font-size:1.5rem;font-weight:500;color:var(--ink2);margin-bottom:.5rem}
-.history-empty .sub{font-size:13px;line-height:1.6}
-.history-card{border:var(--border);border-radius:8px;background:var(--paper);margin-bottom:14px;overflow:hidden}
-.history-card-header{padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;background:var(--paper2);transition:background .15s}
-.history-card-header:hover{background:var(--paper3)}
-.history-day-num{font-family:var(--mono);font-size:10px;color:var(--ink3);min-width:40px}
-.history-day-title{font-size:14px;font-weight:500;color:var(--ink);flex:1}
-.history-date{font-family:var(--mono);font-size:10px;color:var(--ink3)}
-.history-chevron{font-size:12px;color:var(--ink3);transition:transform .2s}
-.history-chevron.open{transform:rotate(90deg)}
-.history-body{display:none;padding:16px}
-.history-body.open{display:block}
-.history-section{margin-bottom:14px}
-.history-section-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
-.history-summary-box{background:var(--paper2);border:var(--border);border-radius:6px;padding:12px 14px;font-size:13px;line-height:1.7;color:var(--ink2);white-space:pre-wrap}
-.history-transcript{display:flex;flex-direction:column;gap:8px;max-height:400px;overflow-y:auto}
-.ht-msg{padding:8px 12px;border-radius:6px;font-size:13px;line-height:1.6}
-.ht-msg.user{background:rgba(79,70,229,.07);color:var(--ink2);border-left:3px solid var(--indigo)}
-.ht-msg.assistant{background:var(--paper2);color:var(--ink2);border-left:3px solid var(--paper3)}
-.ht-msg-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
-@keyframes fadeIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+.tech-card-text{font-size:12px;color:var(--ink2);line-height:1.6}
+.jd-box{background:var(--paper2);border:var(--border);border-radius:6px;padding:1.25rem;font-size:13px;color:var(--ink2);line-height:1.8;white-space:pre-wrap}
+/* COACHING PROMPT CARD */
+.coaching-prompt{background:linear-gradient(135deg,#f0f4ff,#e8f0fe);border:1px solid #c7d7f9;border-radius:8px;padding:14px 16px;margin-bottom:1.5rem}
+.coaching-prompt-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);margin-bottom:6px}
+.coaching-prompt-text{font-size:13px;color:var(--ink2);line-height:1.6;font-family:var(--mono);background:#fff;border:1px solid #c7d7f9;border-radius:4px;padding:8px 10px;cursor:pointer;user-select:all}
+.coaching-prompt-hint{font-size:11px;color:var(--ink3);margin-top:6px}
 </style>
 </head>
 <body>
-
-<!-- PIN LOCK -->
-<div id="pinScreen" style="position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:999">
-  <div style="text-align:center;max-width:320px;padding:2rem">
-    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.5rem">Applied AI Director Coach</div>
-    <div style="font-size:1.75rem;font-weight:600;margin-bottom:.35rem">Enter PIN</div>
-    <div style="font-size:14px;color:var(--ink3);margin-bottom:1.75rem">Your personal coaching hub</div>
-    <input id="pinInput" type="password" inputmode="numeric" maxlength="8" placeholder="PIN"
-      style="width:100%;padding:12px 16px;font-size:1.25rem;text-align:center;letter-spacing:.3em;border:1px solid #e0e0e0;border-radius:6px;background:#f7f7f7;color:#111;outline:none;margin-bottom:10px"
-      onkeydown="if(event.key==='Enter') checkPin()" />
-    <button onclick="checkPin()" style="width:100%;padding:12px;background:#4F46E5;color:#fff;border:none;border-radius:6px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer">Unlock</button>
-    <div id="pinError" style="font-size:12px;color:var(--accent);margin-top:10px;min-height:18px"></div>
-  </div>
-</div>
 
 <header class="app-header">
   <div class="logo"><span>Applied AI</span> Director Coach</div>
   <nav class="nav-tabs">
     <button class="nav-tab" id="tab-home" onclick="switchPage('home')">Home</button>
-    <button class="nav-tab" id="tab-30day" onclick="switchPage('30day')">30-Day Plan</button>
-    <button class="nav-tab" id="tab-ads" onclick="switchPage('ads')">Interview Qs</button>
-    <button class="nav-tab" id="tab-history" onclick="switchPage('history')">My Sessions</button>
+    <button class="nav-tab" id="tab-plan" onclick="switchPage('plan')">30-Day Plan</button>
+    <button class="nav-tab" id="tab-qs" onclick="switchPage('qs')">Interview Qs</button>
+    <button class="nav-tab" id="tab-history" onclick="switchPage('history')">My Notes</button>
     <button class="nav-tab" id="tab-role" onclick="switchPage('role')">Target Role</button>
   </nav>
 </header>
 
+<!-- SESSION MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()">&#8592;</button>
+      <div>
+        <div class="modal-day-label" id="modalLabel"></div>
+        <div class="modal-day-title" id="modalTitle"></div>
+      </div>
+      <button class="modal-done-btn" onclick="markDone()">&#10003; Done</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <!-- HOME -->
 <div id="pageHome" class="page">
-  <div class="home-wrap">
-    <div class="home-hero">
-      <h1>Your Applied AI Director Interview Hub</h1>
-      <p>Targeting Director, Data Science on the Applied AI team at Walmart Global Tech. Forecasting, gen AI, agentic systems, and operational optimization. 30 days, 1 hour a day.</p>
+  <div class="wrap">
+    <div class="page-title">Applied AI Director Coach</div>
+    <div class="page-sub">Walmart Global Tech · 30 days · 1hr/day · Free static tracker</div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num" id="statDays">0</div><div class="stat-label">Days done</div></div>
+      <div class="stat-card"><div class="stat-num" id="statQs" style="color:var(--accent)">0</div><div class="stat-label">Questions done</div></div>
+      <div class="stat-card"><div class="stat-num" id="statNotes" style="color:var(--green)">0</div><div class="stat-label">Notes saved</div></div>
     </div>
-    <div class="tool-cards">
-      <div class="tool-card" onclick="switchPage('30day')">
-        <div class="tool-card-icon">🎓</div>
-        <div class="tool-card-title">30-Day Coaching Plan</div>
-        <div class="tool-card-desc">Daily sessions covering forecasting, agentic AI, gen AI, MLOps, optimization, leadership, and full mock interviews.</div>
-        <div class="tool-card-meta"><span class="pill pill-indigo">30 sessions</span><span class="pill pill-teal">1hr/day</span><span class="pill pill-green">Tracks progress</span></div>
-      </div>
-      <div class="tool-card" onclick="switchPage('ads')">
-        <div class="tool-card-icon">🤖</div>
-        <div class="tool-card-title">Interview Question Bank</div>
-        <div class="tool-card-desc">Director-level questions on forecasting systems, agentic AI, gen AI for retail, optimization, and leadership.</div>
-        <div class="tool-card-meta"><span class="pill pill-amber">Walmart</span><span class="pill pill-dark">Google</span><span class="pill pill-red">Amazon</span></div>
-      </div>
-      <div class="tool-card" onclick="switchPage('history')">
-        <div class="tool-card-icon">📋</div>
-        <div class="tool-card-title">My Sessions</div>
-        <div class="tool-card-desc">Review your past coaching sessions, your answers, and AI-generated summaries of your progress.</div>
-        <div class="tool-card-meta"><span class="pill pill-green">Saved locally</span><span class="pill pill-indigo">Full transcript</span></div>
-      </div>
-      <div class="tool-card" onclick="switchPage('role')">
-        <div class="tool-card-icon">🎯</div>
-        <div class="tool-card-title">Target Role</div>
-        <div class="tool-card-desc">Full job description, key requirements, and technical depth expected for the Walmart Applied AI Director role.</div>
-        <div class="tool-card-meta"><span class="pill pill-amber">Walmart Applied AI</span></div>
-      </div>
+
+    <div class="prog-row"><span>30-Day Progress</span><span id="homeProgVal">0 / 30</span></div>
+    <div class="prog-bar-wrap"><div class="prog-bar-fill" id="homeProgBar" style="width:0%;background:var(--indigo)"></div></div>
+
+    <div class="coaching-prompt" style="margin-top:1.5rem">
+      <div class="coaching-prompt-label">How to use this with Claude.ai</div>
+      <div class="coaching-prompt-text" id="homeDayPrompt" onclick="copyPrompt(this)">Open Claude.ai and say: "Start my Day 1 coaching session on Role and Team Decoding"</div>
+      <div class="coaching-prompt-hint">Tap to copy → paste into Claude.ai → come back here to log your notes</div>
     </div>
-    <div class="progress-section">
-      <div class="progress-label">Your progress</div>
-      <div class="progress-row"><span class="progress-name">30-Day Plan</span><span class="progress-val" id="homeProgressVal">0 / 30 days</span></div>
-      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="homeProgressBar" style="width:0%;background:var(--indigo)"></div></div>
-      <div class="progress-row"><span class="progress-name">Interview Questions</span><span class="progress-val" id="homeAdsVal">0 / 8 done</span></div>
-      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="homeAdsBar" style="width:0%;background:var(--accent)"></div></div>
+
+    <div class="quick-links">
+      <div class="quick-card" onclick="switchPage('plan')"><div class="quick-card-icon">🎓</div><div class="quick-card-title">30-Day Plan</div><div class="quick-card-sub">Pick today's session</div></div>
+      <div class="quick-card" onclick="switchPage('qs')"><div class="quick-card-icon">🤖</div><div class="quick-card-title">Interview Questions</div><div class="quick-card-sub">Practice and track answers</div></div>
+      <div class="quick-card" onclick="switchPage('history')"><div class="quick-card-icon">📋</div><div class="quick-card-title">My Notes</div><div class="quick-card-sub">Review past sessions</div></div>
+      <div class="quick-card" onclick="switchPage('role')"><div class="quick-card-icon">🎯</div><div class="quick-card-title">Target Role</div><div class="quick-card-sub">JD and requirements</div></div>
     </div>
   </div>
 </div>
 
 <!-- 30-DAY PLAN -->
-<div id="page30day" class="page">
-  <div id="planView" class="coach-wrap">
-    <div class="plan-header">
-      <div class="plan-title">🤖 Director, Data Science - Applied AI</div>
-      <div class="plan-sub">Walmart Global Tech · Applied AI Team · 30-day, 1hr/day coaching plan</div>
-      <div class="prog-row"><span style="font-size:12px;color:var(--ink3)">Progress</span><span style="font-family:var(--mono);font-size:11px" id="planProgVal">0/30</span></div>
-      <div class="prog-track"><div class="prog-fill" id="planProgFill" style="width:0%"></div></div>
-    </div>
+<div id="pagePlan" class="page">
+  <div class="wrap">
+    <div class="page-title">30-Day Plan</div>
+    <div class="page-sub">Click any day to log notes and track progress</div>
+    <div class="prog-row"><span style="font-size:12px;color:var(--ink3)">Progress</span><span style="font-family:var(--mono);font-size:11px" id="planProgVal">0/30</span></div>
+    <div class="prog-bar-wrap" style="margin-bottom:1.5rem"><div class="prog-bar-fill" id="planProgBar" style="width:0%;background:var(--indigo)"></div></div>
     <div id="weekBlocks"></div>
-  </div>
-  <div id="sessionView" class="session-wrap" style="display:none">
-    <div class="session-header">
-      <button class="back-btn" onclick="exitSession()">&#8592;</button>
-      <div>
-        <div class="session-day-label" id="sessLabel"></div>
-        <div class="session-day-title" id="sessTitle"></div>
-      </div>
-      <div class="session-btns">
-        <button class="summarize-btn" onclick="generateSummary()">&#9998; Summarize</button>
-        <button class="done-btn" onclick="markSessionDone()">&#10003; Done</button>
-      </div>
-    </div>
-    <div class="session-msgs" id="sessMsgs"></div>
-    <div class="session-input-area">
-      <textarea class="session-input" id="sessInput" placeholder="Answer the coach or ask anything..." rows="2"></textarea>
-      <button class="session-send" id="sessSendBtn" onclick="sendSessionMsg()">Send</button>
-    </div>
   </div>
 </div>
 
 <!-- INTERVIEW QUESTIONS -->
-<div id="pageAds" class="page" style="height:calc(100vh - 49px);overflow:hidden">
-  <div class="ads-main">
-    <aside class="ads-aside">
-      <div class="aside-hdr">Question bank</div>
-      <div class="q-bank" id="qBank"></div>
-    </aside>
-    <div class="ads-content">
-      <div class="ads-q-area" id="adsQArea" style="display:none">
-        <div class="q-meta"><span class="q-badge" id="qBadge"></span><span class="q-num" id="qNum"></span><span class="q-co-tag" id="qCo"></span></div>
-        <div class="q-text" id="qText"></div>
-      </div>
-      <div class="hints-bar" id="hintsBar" style="display:none">
-        <span class="hints-lbl">Guided hints</span><span id="hintsContainer"></span>
-      </div>
-      <div class="ads-chat" id="adsChat">
-        <div class="ads-empty">
-          <div class="big">Pick a question to begin</div>
-          <div class="sub">Select from the left. Answer out loud then type it. Get scored critique for Director-level Applied AI roles.</div>
-        </div>
-      </div>
-      <div class="ads-input-area" id="adsInputArea" style="display:none">
-        <div class="input-wrap">
-          <textarea class="ads-textarea" id="adsAnswerInput" placeholder="Walk through your answer - think out loud..." rows="3"></textarea>
-          <button class="ads-send" id="adsSendBtn" onclick="adsSubmit()">Submit</button>
-        </div>
-        <div class="quick-btns">
-          <button class="quick-btn" onclick="adsQuick('Give me a hint on how to structure this answer')">Hint on structure</button>
-          <button class="quick-btn" onclick="adsQuick('What concepts should I know to answer this well?')">Key concepts</button>
-          <button class="quick-btn" onclick="adsQuick('Give me a sample strong answer for a Director-level candidate')">Model answer</button>
-          <button class="quick-btn" onclick="adsQuick('What would a Walmart Applied AI interviewer be looking for here?')">Interviewer lens</button>
-        </div>
-      </div>
-    </div>
+<div id="pageQs" class="page">
+  <div class="wrap">
+    <div class="page-title">Interview Questions</div>
+    <div class="page-sub">8 Director-level questions. Practice in Claude.ai, log your notes here.</div>
+    <div id="qList"></div>
   </div>
 </div>
 
-<!-- MY SESSIONS / HISTORY -->
+<!-- MY NOTES / HISTORY -->
 <div id="pageHistory" class="page">
-  <div class="history-wrap">
+  <div class="wrap">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem">
-      <div>
-        <h1 style="font-size:1.5rem;font-weight:600;margin-bottom:.25rem">My Sessions</h1>
-        <p style="font-size:13px;color:var(--ink3)">Your coaching transcripts and AI-generated summaries</p>
-      </div>
-      <button onclick="clearHistory()" style="font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border:var(--border);border-radius:4px;background:transparent;color:var(--ink3)">Clear all</button>
+      <div><div class="page-title">My Notes</div><div class="page-sub" style="margin-bottom:0">All your saved session notes</div></div>
+      <button onclick="clearAllNotes()" style="font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border:var(--border);border-radius:4px;background:transparent;color:var(--ink3)">Clear all</button>
     </div>
     <div id="historyList"></div>
   </div>
@@ -342,32 +218,33 @@ button{cursor:pointer}
 
 <!-- TARGET ROLE -->
 <div id="pageRole" class="page">
-  <div class="role-wrap">
-    <div style="margin-bottom:2rem">
-      <h1 style="font-size:1.75rem;font-weight:600;margin-bottom:.4rem">Target Role</h1>
-      <p style="font-size:14px;color:var(--ink3)">Director, Data Science - Applied AI &middot; Walmart Global Tech &middot; $169K-$338K + bonus + equity</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2rem">
+  <div class="wrap">
+    <div class="page-title">Target Role</div>
+    <div class="page-sub">Director, Data Science - Applied AI · Walmart Global Tech · $169K-$338K + bonus + equity</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.75rem">
       <div style="background:rgba(79,70,229,.05);border:1px solid rgba(79,70,229,.15);border-radius:8px;padding:1rem">
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);margin-bottom:8px">Team</div>
-        <div style="font-size:13px;color:var(--ink2);line-height:1.6">Applied AI &middot; 300+ scientists and engineers &middot; Retail, Grocery, Logistics, Pharma</div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);margin-bottom:6px">Team</div>
+        <div style="font-size:13px;color:var(--ink2);line-height:1.6">Applied AI · 300+ scientists and engineers · Retail, Grocery, Logistics, Pharma</div>
       </div>
       <div style="background:rgba(8,145,178,.05);border:1px solid rgba(8,145,178,.15);border-radius:8px;padding:1rem">
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Location</div>
-        <div style="font-size:13px;color:var(--ink2);line-height:1.6">Bentonville AR (HQ) &middot; SF Bay Area &middot; New York/NJ &middot; In-person culture</div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Location</div>
+        <div style="font-size:13px;color:var(--ink2);line-height:1.6">Bentonville AR · SF Bay Area · New York/NJ · In-person culture</div>
       </div>
     </div>
+
     <div style="margin-bottom:1.75rem">
-      <div class="section-hdr" style="border-left-color:var(--accent)">Must-have requirements</div>
+      <div class="section-hdr" style="color:var(--accent);margin-bottom:10px">Must-have requirements</div>
       <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Lead high-impact DS team dedicated to forecasting and gen AI initiatives</span></div>
       <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Full DS lifecycle: problem scoping, model design, optimization, deployment, monitoring, impact measurement</span></div>
-      <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Fulfillment network design and operational optimization - translating strategy into execution</span></div>
+      <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Fulfillment network design and operational optimization</span></div>
       <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Cross-functional alignment: product, engineering, merchandising, business stakeholders</span></div>
       <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Model governance, reproducibility, and ethical AI practices at scale</span></div>
-      <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Executive communication - translating complex ML to business impact for senior leadership</span></div>
+      <div class="req-item"><span style="color:var(--accent);font-weight:700;flex-shrink:0">+</span><span>Executive communication - complex ML to business impact for senior leadership</span></div>
     </div>
+
     <div style="margin-bottom:1.75rem">
-      <div class="section-hdr" style="border-left-color:var(--teal)">Technical depth expected</div>
+      <div class="section-hdr" style="color:var(--teal);margin-bottom:10px">Technical depth expected</div>
       <div class="tech-grid">
         <div class="tech-card"><div class="tech-card-label">Forecasting</div><div class="tech-card-text">Classical (ARIMA, Prophet, ETS) and deep learning (TFT, DeepAR, N-BEATS). Hierarchy, cold-start, promotional lifts.</div></div>
         <div class="tech-card"><div class="tech-card-label">Gen AI</div><div class="tech-card-text">LLMs, RAG, embeddings applied to retail ops. Associate-facing tools, inventory Q and A, demand signals.</div></div>
@@ -375,8 +252,9 @@ button{cursor:pointer}
         <div class="tech-card"><div class="tech-card-label">Optimization</div><div class="tech-card-text">MIP, constraint programming, fulfillment network design. Predict-then-optimize, RL for operations.</div></div>
       </div>
     </div>
+
     <div>
-      <div class="section-hdr" style="border-left-color:var(--green)">Full job description</div>
+      <div class="section-hdr" style="color:var(--green);margin-bottom:10px">Full job description</div>
       <div class="jd-box">Director, Data Science - Applied AI
 Walmart Global Tech
 
@@ -406,7 +284,6 @@ Primary hubs: San Francisco Bay Area and New York/New Jersey</div>
 </div>
 
 <script>
-var API_URL = '/api/proxy';
 var APP_PIN = '2025';
 
 // ── SPEECH ──
@@ -415,7 +292,7 @@ function speak(text, btn) {
   if (btn.classList.contains('playing')) { btn.classList.remove('playing'); btn.textContent = '🔊 Listen'; return; }
   document.querySelectorAll('.audio-btn').forEach(function(b) { b.classList.remove('playing'); b.textContent = '🔊 Listen'; });
   var u = new SpeechSynthesisUtterance(text);
-  u.rate = 0.95; u.lang = 'en-US';
+  u.rate = 0.92; u.lang = 'en-US';
   u.onend = function() { btn.classList.remove('playing'); btn.textContent = '🔊 Listen'; };
   u.onerror = function() { btn.classList.remove('playing'); btn.textContent = '🔊 Listen'; };
   btn.classList.add('playing'); btn.textContent = '⏹ Stop';
@@ -429,95 +306,102 @@ function makeAudioBtn(text) {
   return btn;
 }
 
-// ── PIN ──
-function checkPin() {
-  var entered = document.getElementById('pinInput').value.trim();
-  if (entered === APP_PIN) {
-    document.getElementById('pinScreen').style.display = 'none';
-    sessionStorage.setItem('apai_unlocked', '1');
-  } else {
-    var err = document.getElementById('pinError');
-    err.textContent = 'Incorrect PIN. Try again.';
-    document.getElementById('pinInput').value = '';
-    document.getElementById('pinInput').focus();
-    setTimeout(function() { err.textContent = ''; }, 2500);
-  }
+// ── COPY PROMPT ──
+function copyPrompt(el) {
+  var text = el.textContent;
+  if (navigator.clipboard) { navigator.clipboard.writeText(text); }
+  else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+  var orig = el.style.background; el.style.background = '#e0e7ff';
+  setTimeout(function() { el.style.background = orig; }, 600);
 }
+
+// ── STORAGE ──
+function getStorage() { try { return JSON.parse(localStorage.getItem('apai_data') || '{}'); } catch(e) { return {}; } }
+function setStorage(data) { localStorage.setItem('apai_data', JSON.stringify(data)); }
+function getData(key, def) { var d = getStorage(); return d[key] !== undefined ? d[key] : def; }
+function setData(key, val) { var d = getStorage(); d[key] = val; setStorage(d); }
 
 // ── NAV ──
 function switchPage(page) {
-  var pages = ['pageHome','page30day','pageAds','pageHistory','pageRole'];
-  var tabs = ['tab-home','tab-30day','tab-ads','tab-history','tab-role'];
-  var keys = ['home','30day','ads','history','role'];
+  var pages = ['pageHome','pagePlan','pageQs','pageHistory','pageRole'];
+  var tabs = ['tab-home','tab-plan','tab-qs','tab-history','tab-role'];
+  var keys = ['home','plan','qs','history','role'];
   for (var i = 0; i < pages.length; i++) {
     document.getElementById(pages[i]).style.display = 'none';
     document.getElementById(tabs[i]).classList.remove('active');
   }
   var idx = keys.indexOf(page);
   if (idx >= 0) { document.getElementById(pages[idx]).style.display = 'block'; document.getElementById(tabs[idx]).classList.add('active'); }
-  if (page === 'home') updateHomeProgress();
+  if (page === 'home') updateHome();
+  if (page === 'plan') renderPlan();
+  if (page === 'qs') renderQs();
   if (page === 'history') renderHistory();
 }
 
-// ── STORAGE HELPERS ──
-function getSessions() { try { return JSON.parse(localStorage.getItem('apai_sessions') || '{}'); } catch(e) { return {}; } }
-function saveSession(dayNum, data) {
-  var sessions = getSessions();
-  sessions[dayNum] = data;
-  localStorage.setItem('apai_sessions', JSON.stringify(sessions));
-}
-
-// ── PLAN DATA ──
-var PLAN_SYSTEM = 'You are an elite executive coach preparing a candidate for Director, Data Science on the Applied AI team at Walmart Global Tech. The Applied AI team (300+ scientists/engineers) deploys agentic AI, ML, and mathematical optimization across Walmart retail, grocery, logistics, and pharmaceutical operations. Key areas: demand forecasting (ARIMA, Prophet, TFT, DeepAR), generative AI for retail (LLMs, RAG, embeddings), agentic AI systems (multi-agent, orchestration, replenishment agents), mathematical optimization (MIP, fulfillment network design), MLOps (GCP/Vertex AI, governance, monitoring), people leadership, stakeholder communication, ethical AI. The user has 30 days, 1hr/day. Be direct, use probing questions, simulate real interviews, mix theory with practice. Reference Walmart scale. Prefer conversational coaching over bullet lists.';
-
+// ── DATA ──
 var WEEKS = [
   {week:1,title:'Foundations and Applied AI Leadership',color:'#4F46E5',days:[
-    {day:1,topic:'Role and Team Decoding',icon:'🎯',summary:'Understand the Applied AI team mission and craft your leadership narrative'},
-    {day:2,topic:'Demand Forecasting Fundamentals',icon:'📈',summary:'Classical methods: ARIMA, Prophet, ETS, exponential smoothing at Walmart scale'},
-    {day:3,topic:'Deep Learning for Forecasting',icon:'🧠',summary:'TFT, DeepAR, N-BEATS, N-HiTS - when to use each vs classical methods'},
-    {day:4,topic:'People Leadership and Team Building',icon:'👥',summary:'Growing DS and DE teams, hiring bar, culture of innovation and ownership'},
-    {day:5,topic:'Stakeholder Management and Executive Communication',icon:'🗣️',summary:'Translating forecasting accuracy to business impact, influencing merchandising'},
-    {day:6,topic:'Week 1 Review and Mock Interview',icon:'🧪',summary:'Behavioral and forecasting technical questions, STAR stories'},
-    {day:7,topic:'Rest and Catch-up Day',icon:'🔄',summary:'Review weak spots, consolidate learning'}
+    {day:1,topic:'Role and Team Decoding',icon:'🎯',summary:'Understand the Applied AI team mission and craft your leadership narrative',prompt:'Start my Day 1 coaching session on "Role and Team Decoding". Help me understand the Walmart Applied AI team mission and coach me to craft my leadership narrative for this Director role.'},
+    {day:2,topic:'Demand Forecasting Fundamentals',icon:'📈',summary:'Classical methods: ARIMA, Prophet, ETS at Walmart scale',prompt:'Start my Day 2 coaching session on "Demand Forecasting Fundamentals". Quiz me on ARIMA, Prophet, ETS and exponential smoothing. Challenge me with questions a Walmart Applied AI interviewer would ask.'},
+    {day:3,topic:'Deep Learning for Forecasting',icon:'🧠',summary:'TFT, DeepAR, N-BEATS vs classical methods',prompt:'Start my Day 3 coaching session on "Deep Learning for Forecasting". Cover TFT, DeepAR, N-BEATS and N-HiTS. Ask me when I would use each vs classical methods at Walmart scale.'},
+    {day:4,topic:'People Leadership and Team Building',icon:'👥',summary:'Growing DS and DE teams, hiring bar, culture',prompt:'Start my Day 4 coaching session on "People Leadership and Team Building". Ask me behavioral questions about how I have built and grown data science teams, and push me on specifics.'},
+    {day:5,topic:'Stakeholder Management and Executive Communication',icon:'🗣️',summary:'Translating forecasting accuracy to business impact',prompt:'Start my Day 5 coaching session on "Stakeholder Management and Executive Communication". Give me scenarios where I need to translate ML results to business impact and challenge my communication approach.'},
+    {day:6,topic:'Week 1 Review and Mock Interview',icon:'🧪',summary:'Behavioral and forecasting technical questions',prompt:'Start my Day 6 Week 1 mock interview. Ask me 3 tough questions covering what we covered this week: role narrative, forecasting fundamentals, and leadership. Score each answer.'},
+    {day:7,topic:'Rest and Catch-up Day',icon:'🔄',summary:'Review weak spots, consolidate learning',prompt:''}
   ]},
   {week:2,title:'Generative AI and Agentic Systems',color:'#0891B2',days:[
-    {day:8,topic:'Gen AI Applied to Retail Operations',icon:'🤖',summary:'LLMs for demand signals, product descriptions, associate tools, inventory Q and A'},
-    {day:9,topic:'RAG Systems in Production',icon:'📚',summary:'Retail knowledge bases, chunking, reranking, grounding LLM outputs'},
-    {day:10,topic:'Agentic AI Architecture and Design',icon:'⚙️',summary:'Multi-agent frameworks, orchestration patterns, tool use, memory systems'},
-    {day:11,topic:'Agentic AI Retail Use Cases',icon:'🏪',summary:'Replenishment agents, pricing agents, fulfillment automation, associate copilots'},
-    {day:12,topic:'Responsible AI and Explainability',icon:'⚖️',summary:'Fairness, bias, transparency, model governance, explainable decisions at scale'},
-    {day:13,topic:'Week 2 Review and System Design',icon:'🔬',summary:'Design an agentic replenishment system for Walmart US stores'},
-    {day:14,topic:'Rest and Catch-up Day',icon:'🔄',summary:'Review weak spots, consolidate learning'}
+    {day:8,topic:'Gen AI Applied to Retail Operations',icon:'🤖',summary:'LLMs for demand signals, associate tools, inventory Q and A',prompt:'Start my Day 8 coaching session on "Gen AI Applied to Retail Operations". Teach me how LLMs can be applied to Walmart operations and quiz me on real use cases.'},
+    {day:9,topic:'RAG Systems in Production',icon:'📚',summary:'Retail knowledge bases, chunking, reranking, grounding',prompt:'Start my Day 9 coaching session on "RAG Systems in Production". Ask me to design a RAG system for a Walmart retail use case and challenge me on chunking, retrieval, and grounding LLM outputs.'},
+    {day:10,topic:'Agentic AI Architecture and Design',icon:'⚙️',summary:'Multi-agent frameworks, orchestration patterns',prompt:'Start my Day 10 coaching session on "Agentic AI Architecture". Quiz me on multi-agent frameworks, orchestration patterns, tool use, and memory systems for retail applications.'},
+    {day:11,topic:'Agentic AI Retail Use Cases',icon:'🏪',summary:'Replenishment agents, pricing agents, associate copilots',prompt:'Start my Day 11 coaching session on "Agentic AI Retail Use Cases". Ask me to design an agentic replenishment system for Walmart stores and challenge me on safety and explainability.'},
+    {day:12,topic:'Responsible AI and Explainability',icon:'⚖️',summary:'Fairness, bias, transparency, model governance',prompt:'Start my Day 12 coaching session on "Responsible AI and Explainability". Quiz me on fairness, bias, transparency, and governance frameworks for production ML at Walmart scale.'},
+    {day:13,topic:'Week 2 Review and System Design',icon:'🔬',summary:'Design an agentic replenishment system end-to-end',prompt:'Start my Day 13 system design session. Ask me to design an end-to-end agentic replenishment system for Walmart US stores. Evaluate my architecture, agent design, safety guardrails, and measurement approach.'},
+    {day:14,topic:'Rest and Catch-up Day',icon:'🔄',summary:'Review weak spots, consolidate learning',prompt:''}
   ]},
   {week:3,title:'Optimization, MLOps and Measurement',color:'#059669',days:[
-    {day:15,topic:'Mathematical Optimization Fundamentals',icon:'📐',summary:'MIP, constraint programming, supply chain optimization, fulfillment network design'},
-    {day:16,topic:'Optimization and ML Hybrid Approaches',icon:'🔁',summary:'Predict-then-optimize, end-to-end differentiable optimization, RL for operations'},
-    {day:17,topic:'MLOps at Walmart Scale',icon:'🏗️',summary:'GCP/Vertex AI, pipelines, model registry, monitoring, drift detection, reproducibility'},
-    {day:18,topic:'Experimentation and Causal Inference',icon:'🧮',summary:'A/B testing for forecasting improvements, uplift, measuring operational impact'},
-    {day:19,topic:'Data Architecture: Spark, BigQuery, Feature Stores',icon:'🗄️',summary:'Real-time vs batch pipelines, data quality, feature freshness for forecasting'},
-    {day:20,topic:'Week 3 Review and Strategy Exercise',icon:'♟️',summary:'Present a 90-day Applied AI roadmap for Walmart US in-store and e-commerce'},
-    {day:21,topic:'Rest and Catch-up Day',icon:'🔄',summary:'Review weak spots, consolidate learning'}
+    {day:15,topic:'Mathematical Optimization Fundamentals',icon:'📐',summary:'MIP, constraint programming, fulfillment network design',prompt:'Start my Day 15 coaching session on "Mathematical Optimization". Quiz me on MIP, constraint programming, and supply chain optimization. Ask how I would apply these to Walmart fulfillment network design.'},
+    {day:16,topic:'Optimization and ML Hybrid Approaches',icon:'🔁',summary:'Predict-then-optimize, RL for operations',prompt:'Start my Day 16 coaching session on "Optimization and ML Hybrid Approaches". Cover predict-then-optimize, end-to-end differentiable optimization, and RL for retail operations.'},
+    {day:17,topic:'MLOps at Walmart Scale',icon:'🏗️',summary:'GCP/Vertex AI, pipelines, monitoring, drift detection',prompt:'Start my Day 17 coaching session on "MLOps at Walmart Scale". Quiz me on GCP/Vertex AI, ML pipelines, model registry, monitoring, and drift detection for large-scale retail systems.'},
+    {day:18,topic:'Experimentation and Causal Inference',icon:'🧮',summary:'A/B testing for forecasting, uplift, measuring operational impact',prompt:'Start my Day 18 coaching session on "Experimentation and Causal Inference". Ask me how I would design experiments to measure forecasting improvements and operational AI impact at Walmart.'},
+    {day:19,topic:'Data Architecture: Spark, BigQuery, Feature Stores',icon:'🗄️',summary:'Real-time vs batch, data quality, feature freshness',prompt:'Start my Day 19 coaching session on "Data Architecture". Quiz me on Spark, BigQuery, and feature stores for large-scale forecasting. Ask about real-time vs batch tradeoffs.'},
+    {day:20,topic:'Week 3 Review and Strategy Exercise',icon:'♟️',summary:'Present a 90-day Applied AI roadmap',prompt:'Start my Day 20 strategy session. Ask me to present my 90-day Applied AI roadmap for Walmart US in-store and e-commerce. Challenge me on prioritization, stakeholder alignment, and quick wins.'},
+    {day:21,topic:'Rest and Catch-up Day',icon:'🔄',summary:'Review weak spots, consolidate learning',prompt:''}
   ]},
   {week:4,title:'Interview Mastery and Final Prep',color:'#DC2626',days:[
-    {day:22,topic:'Behavioral Interviews: Leadership Stories',icon:'📖',summary:'STAR method, conflict, team failure, driving alignment across functions'},
-    {day:23,topic:'System Design: Forecasting at Scale',icon:'🛠️',summary:'End-to-end demand forecasting system for Walmart - design and critique'},
-    {day:24,topic:'System Design: Agentic AI for Retail',icon:'🤖',summary:'Multi-agent fulfillment or replenishment system - architecture deep dive'},
-    {day:25,topic:'Business Case and Metrics Framing',icon:'💼',summary:'In-stock rate, waste reduction, forecast MAPE, associate efficiency, revenue impact'},
-    {day:26,topic:'Compensation and Offer Negotiation',icon:'💰',summary:'Range $169K-$338K plus equity and bonus, how to negotiate, what to ask'},
-    {day:27,topic:'Full Mock Interview Day 1',icon:'🎬',summary:'60-min behavioral and forecasting technical simulation'},
-    {day:28,topic:'Full Mock Interview Day 2',icon:'🎬',summary:'System design and 90-day vision presentation simulation'},
-    {day:29,topic:'Final Sharpening',icon:'✨',summary:'Polish answers, sharpen key frameworks, mental preparation'},
-    {day:30,topic:'You Are Ready. Final Confidence Session',icon:'🏆',summary:'Celebrate progress, lock in your narrative, you have got this'}
+    {day:22,topic:'Behavioral Interviews: Leadership Stories',icon:'📖',summary:'STAR method, conflict, team failure, driving alignment',prompt:'Start my Day 22 coaching session on "Behavioral Interviews". Give me 3 tough leadership behavioral questions for a Director Applied AI role. Push me on specificity and STAR structure.'},
+    {day:23,topic:'System Design: Forecasting at Scale',icon:'🛠️',summary:'End-to-end demand forecasting system for Walmart',prompt:'Start my Day 23 system design session. Ask me to design an end-to-end demand forecasting system for Walmart - millions of SKUs, thousands of stores. Evaluate my architecture and model choices.'},
+    {day:24,topic:'System Design: Agentic AI for Retail',icon:'🤖',summary:'Multi-agent fulfillment system architecture',prompt:'Start my Day 24 system design session. Ask me to design a multi-agent fulfillment optimization system for Walmart e-commerce. Challenge me on agent coordination, safety, and measurement.'},
+    {day:25,topic:'Business Case and Metrics Framing',icon:'💼',summary:'In-stock rate, MAPE, associate efficiency, revenue impact',prompt:'Start my Day 25 coaching session on "Business Case and Metrics Framing". Give me scenarios where I need to quantify the business value of forecasting improvements and agentic AI at Walmart.'},
+    {day:26,topic:'Compensation and Offer Negotiation',icon:'💰',summary:'$169K-$338K + equity, how to negotiate',prompt:'Start my Day 26 coaching session on compensation negotiation. Coach me on how to negotiate the Walmart Applied AI Director offer ($169K-$338K range plus equity and bonus). Ask me practice scenarios.'},
+    {day:27,topic:'Full Mock Interview Day 1',icon:'🎬',summary:'60-min behavioral and technical simulation',prompt:'Run a full 60-minute mock interview for the Walmart Applied AI Director role. Start with 2 behavioral questions, then 1 forecasting system design question. Score each answer and give detailed feedback at the end.'},
+    {day:28,topic:'Full Mock Interview Day 2',icon:'🎬',summary:'System design and 90-day vision presentation',prompt:'Run a full mock interview Day 2 for the Walmart Applied AI Director role. Ask me to present my 90-day vision, then ask 1 agentic AI system design question, then ask 1 hard follow-up leadership question. Score everything.'},
+    {day:29,topic:'Final Sharpening',icon:'✨',summary:'Polish answers, sharpen key frameworks',prompt:'It is Day 29 of my prep for the Walmart Applied AI Director role. Help me sharpen my 3 weakest areas. Ask me what I feel least confident about and then drill me on those topics.'},
+    {day:30,topic:'You Are Ready. Final Confidence Session',icon:'🏆',summary:'Celebrate progress, lock in your narrative',prompt:'It is Day 30. I have completed my 30-day prep for the Walmart Applied AI Director role. Review my strengths, help me craft my final 60-second elevator pitch for this role, and give me your honest assessment of my readiness.'}
   ]}
 ];
 
-var completedDays = new Set(JSON.parse(localStorage.getItem('apai_completed') || '[]'));
-var currentDay = null, sessionHistory = [], sessLoading = false, summaryLoading = false;
+var QUESTIONS = [
+  {id:1,type:'ml',company:'Walmart',title:'Demand forecasting system design',question:'Design an end-to-end demand forecasting system for Walmart US - covering thousands of stores, millions of SKUs, across grocery, general merchandise, and pharmacy.',hints:['Start with problem framing: what are you forecasting, at what granularity, what horizon?','Discuss the hierarchy: national to regional to store to SKU-store','Address cold-start for new items and new stores','Talk about how you handle seasonality, promotions, and external signals']},
+  {id:2,type:'ml',company:'Walmart',title:'Agentic replenishment system',question:'Design an agentic AI system that autonomously manages in-store inventory at Walmart. What agents would you build, how would they coordinate, and how would you ensure safety before full deployment?',hints:['Frame agent responsibilities: demand forecasting agent, order generation agent, exception handling agent','Discuss multi-agent coordination: shared state, message passing, conflict resolution','Address safety guardrails: when should the agent escalate to a human?','Talk about shadow-deploy and measuring trust before full autonomy']},
+  {id:3,type:'ml',company:'Google',title:'LLM-powered retail operations',question:'Design an LLM system to help Walmart store associates with inventory queries, task prioritization, and shift handoff summaries. Focus on RAG architecture, grounding, and preventing hallucinations.',hints:['Frame the knowledge base: what data sources feed the RAG system?','Discuss chunking and retrieval strategies for structured vs unstructured retail data','Address hallucination risk: what happens if an associate acts on wrong inventory data?','How do you measure answer quality without ground truth for every query?']},
+  {id:4,type:'ml',company:'Amazon',title:'Forecasting under supply chain disruption',question:'A port closure affects 20% of your Walmart SKU assortment for an unknown duration. How does your forecasting system detect this, adapt, and communicate uncertainty to downstream planning systems?',hints:['Discuss anomaly detection: how does your system recognize signal vs noise?','When do you override ML with rules or human judgment?','Address uncertainty quantification: prediction intervals, scenario planning','How do you propagate the forecast change to replenishment, pricing, and allocation?']},
+  {id:5,type:'behavioral',company:'Walmart',title:'Driving alignment across functions',question:'Tell me about a time you drove alignment on a major ML initiative where engineering, product, merchandising, and finance had competing priorities.',hints:['Use STAR: Situation, Task, Action, Result','Be specific about what the technical and business tensions were','Explain how you translated ML tradeoffs into language each stakeholder understood','Quantify the outcome']},
+  {id:6,type:'behavioral',company:'Google',title:'Building a high-performing DS team',question:'Describe how you built or transformed a data science team. What was the state when you started, what did you change, and how did you measure growth and impact?',hints:['Talk about your hiring bar: what did you look for beyond technical skills?','Describe how you set up technical infrastructure and ways of working','Explain how you handled underperformers or misaligned skill sets','What metrics did you use to measure team health and output quality?']},
+  {id:7,type:'strategy',company:'Walmart',title:'90-day Applied AI roadmap',question:'You just joined Walmart Applied AI as Director. Walk me through your 90-day plan: assessing the current state, identifying high-impact opportunities in forecasting and gen AI, and setting up your team.',hints:['Frame the 30-60-90 structure: listen and learn, diagnose, start executing','How would you assess current model quality, tech debt, and team capability?','Identify quick wins vs long-term bets in forecasting and gen AI','How would you align with product, engineering, and merchandising leadership?']},
+  {id:8,type:'ml',company:'Amazon',title:'Optimization and ML for fulfillment',question:'Design a system to optimize Walmart e-commerce fulfillment - deciding which warehouse fulfills each order to minimize cost while meeting delivery SLAs. Combine ML forecasting with mathematical optimization.',hints:['Separate the prediction problem from the optimization problem','Discuss predict-then-optimize vs end-to-end approaches','Handle real-time constraints: live inventory, carrier capacity, SLA windows','Address business metrics: cost per order, on-time delivery rate, customer satisfaction']}
+];
+
+// ── PLAN ──
+var completedDays = new Set(JSON.parse(localStorage.getItem('apai_done') || '[]'));
+var sessionNotes = getData('apai_session_notes', {});
+var qNotes = getData('apai_q_notes', {});
+var qDone = new Set(JSON.parse(localStorage.getItem('apai_qdone') || '[]'));
+var currentDay = null;
 
 function renderPlan() {
   var total = completedDays.size, pct = Math.round(total/30*100);
   document.getElementById('planProgVal').textContent = total + '/30';
-  document.getElementById('planProgFill').style.width = pct + '%';
+  document.getElementById('planProgBar').style.width = pct + '%';
   var container = document.getElementById('weekBlocks'); container.innerHTML = '';
   for (var wi = 0; wi < WEEKS.length; wi++) {
     var w = WEEKS[wi];
@@ -529,375 +413,239 @@ function renderPlan() {
     for (var di = 0; di < w.days.length; di++) {
       var d = w.days[di];
       var done = completedDays.has(d.day), isRest = d.topic.indexOf('Rest') >= 0;
-      var hasSaved = !!getSessions()[d.day];
+      var hasNotes = sessionNotes[d.day] && sessionNotes[d.day].trim().length > 0;
       var row = document.createElement('div');
       row.className = 'day-row' + (isRest?' rest':'') + (done?' done':'');
-      row.style.borderColor = done ? w.color+'55' : '';
-      row.style.background = done ? w.color+'08' : '';
+      row.style.borderColor = done ? '#86efac' : (hasNotes ? w.color+'44' : '');
       var numEl = document.createElement('div'); numEl.className = 'day-num'; numEl.textContent = 'Day ' + d.day;
       var iconEl = document.createElement('div'); iconEl.className = 'day-icon'; iconEl.textContent = d.icon;
       var infoEl = document.createElement('div'); infoEl.className = 'day-info';
       var topicEl = document.createElement('div'); topicEl.className = 'day-topic'; topicEl.textContent = d.topic;
-      var sumEl = document.createElement('div'); sumEl.className = 'day-summary'; sumEl.textContent = d.summary;
-      infoEl.appendChild(topicEl); infoEl.appendChild(sumEl);
-      var statusEl = document.createElement('div'); statusEl.style.cssText = 'font-size:13px;color:'+w.color;
-      statusEl.textContent = done ? '✓' : (hasSaved ? '~' : (!isRest ? '›' : ''));
+      var metaEl = document.createElement('div'); metaEl.className = 'day-meta';
+      metaEl.textContent = d.summary + (hasNotes ? ' · notes saved' : '');
+      infoEl.appendChild(topicEl); infoEl.appendChild(metaEl);
+      var statusEl = document.createElement('div'); statusEl.className = 'day-status';
+      statusEl.style.color = done ? '#15803d' : w.color;
+      statusEl.textContent = done ? '✓' : (hasNotes ? '~' : (!isRest ? '›' : ''));
       row.appendChild(numEl); row.appendChild(iconEl); row.appendChild(infoEl); row.appendChild(statusEl);
-      if (!isRest) {
-        (function(day, color) {
-          row.onmouseenter = function() { if (!completedDays.has(day.day)) row.style.borderColor = color; };
-          row.onmouseleave = function() { row.style.borderColor = completedDays.has(day.day) ? color+'55' : ''; };
-          row.onclick = function() { startSession(day, color); };
-        })(d, w.color);
-      }
+      if (!isRest) { (function(day){ row.onclick = function(){ openModal(day); }; })(d); }
       wb.appendChild(row);
     }
     container.appendChild(wb);
   }
 }
 
-function startSession(day, color) {
+function openModal(day) {
   currentDay = day;
-  document.getElementById('planView').style.display = 'none';
-  document.getElementById('sessionView').style.display = 'flex';
-  document.getElementById('sessLabel').textContent = 'Day ' + day.day + ' - 1-Hour Session';
-  document.getElementById('sessTitle').textContent = day.icon + ' ' + day.topic;
-  document.getElementById('sessSendBtn').style.background = color || '#4F46E5';
+  document.getElementById('modalLabel').textContent = 'Day ' + day.day + ' - 1-Hour Session';
+  document.getElementById('modalTitle').textContent = day.icon + ' ' + day.topic;
+  var body = document.getElementById('modalBody'); body.innerHTML = '';
 
-  // load saved session or start fresh
-  var saved = getSessions()[day.day];
-  var msgs = document.getElementById('sessMsgs'); msgs.innerHTML = '';
-  if (saved && saved.history && saved.history.length > 0) {
-    sessionHistory = saved.history;
-    for (var i = 0; i < saved.history.length; i++) {
-      var m = saved.history[i];
-      if (m.role !== 'system') appendSessMsg(m.role, m.content, true);
-    }
-    var resumeDiv = document.createElement('div');
-    resumeDiv.style.cssText = 'text-align:center;font-family:var(--mono);font-size:10px;color:var(--ink3);padding:8px;border-top:var(--border);margin-top:4px';
-    resumeDiv.textContent = 'Session resumed — ' + saved.history.filter(function(m){return m.role==='user';}).length + ' exchanges saved';
-    msgs.appendChild(resumeDiv);
-  } else {
-    sessionHistory = [];
-    sessLoading = true; document.getElementById('sessSendBtn').disabled = true;
-    appendSessMsg('assistant', '...');
-    var opener = 'Start my Day ' + day.day + ' coaching session on: "' + day.topic + '". ' + day.summary + '. Begin with a brief framing of what we will cover today, then ask me your first coaching question to assess where I stand.';
-    fetch(API_URL, {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:PLAN_SYSTEM,messages:[{role:'user',content:opener}]})
-    }).then(function(r){return r.json();}).then(function(data){
-      var text = (data.content && data.content.find(function(b){return b.type==='text';})) ? data.content.find(function(b){return b.type==='text';}).text : "Let's begin!";
-      sessionHistory = [{role:'user',content:opener},{role:'assistant',content:text}];
-      saveSessionData();
-      var m = document.getElementById('sessMsgs'); if(m.lastChild) m.removeChild(m.lastChild);
-      appendSessMsg('assistant', text);
-    }).catch(function(){
-      var m = document.getElementById('sessMsgs'); if(m.lastChild) m.removeChild(m.lastChild);
-      appendSessMsg('assistant','Connection error. Check your proxy setup.');
-    }).finally(function(){ sessLoading = false; document.getElementById('sessSendBtn').disabled = false; });
+  // Claude prompt
+  if (day.prompt) {
+    var promptBox = document.createElement('div'); promptBox.className = 'coaching-prompt';
+    var pl = document.createElement('div'); pl.className = 'coaching-prompt-label'; pl.textContent = 'Copy this prompt into Claude.ai to start your session';
+    var pt = document.createElement('div'); pt.className = 'coaching-prompt-text'; pt.textContent = day.prompt; pt.onclick = function(){ copyPrompt(pt); };
+    var ph = document.createElement('div'); ph.className = 'coaching-prompt-hint'; ph.textContent = 'Tap to copy → paste into Claude.ai → come back here to log your notes';
+    promptBox.appendChild(pl); promptBox.appendChild(pt); promptBox.appendChild(ph);
+    body.appendChild(promptBox);
   }
+
+  // Session info
+  var info = document.createElement('div'); info.className = 'session-info-box';
+  var ih = document.createElement('h4'); ih.textContent = 'What to cover today';
+  var it = document.createElement('div'); it.textContent = day.summary;
+  info.appendChild(ih); info.appendChild(it);
+  body.appendChild(info);
+
+  // Your notes
+  var notesSection = document.createElement('div'); notesSection.className = 'notes-section';
+  var nl = document.createElement('div'); nl.className = 'notes-label'; nl.textContent = 'Your session notes';
+  var ta = document.createElement('textarea'); ta.className = 'notes-ta'; ta.id = 'sessionNotesTA';
+  ta.placeholder = 'Paste key insights from your Claude.ai session here... what did you learn? what do you need to review?';
+  ta.value = sessionNotes[day.day] || '';
+  ta.rows = 6;
+  var saveBtn = document.createElement('button'); saveBtn.className = 'save-notes-btn'; saveBtn.textContent = 'Save notes';
+  saveBtn.onclick = function() {
+    sessionNotes[day.day] = ta.value;
+    setData('apai_session_notes', sessionNotes);
+    saveBtn.textContent = '✓ Saved';
+    setTimeout(function(){ saveBtn.textContent = 'Save notes'; }, 1500);
+  };
+  notesSection.appendChild(nl); notesSection.appendChild(ta); notesSection.appendChild(saveBtn);
+
+  // Audio for notes
+  var audioWrap = document.createElement('div'); audioWrap.style.marginTop = '8px';
+  var audioBtn = makeAudioBtn('');
+  audioBtn.textContent = '🔊 Read notes aloud';
+  audioBtn.onclick = function() {
+    var txt = ta.value.trim();
+    if (!txt) { alert('No notes to read yet.'); return; }
+    speak(txt, audioBtn);
+  };
+  audioWrap.appendChild(audioBtn);
+  notesSection.appendChild(audioWrap);
+  body.appendChild(notesSection);
+
+  document.getElementById('modalOverlay').classList.add('open');
 }
 
-function sendSessionMsg() {
-  var inp = document.getElementById('sessInput');
-  var text = inp.value.trim();
-  if (!text || sessLoading) return;
-  inp.value = ''; inp.style.height = 'auto';
-  appendSessMsg('user', text);
-  sessionHistory.push({role:'user',content:text});
-  saveSessionData();
-  sessLoading = true; document.getElementById('sessSendBtn').disabled = true;
-  appendSessMsg('assistant','...');
-  fetch(API_URL, {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:PLAN_SYSTEM,messages:sessionHistory})
-  }).then(function(r){return r.json();}).then(function(data){
-    var reply = (data.content && data.content.find(function(b){return b.type==='text';})) ? data.content.find(function(b){return b.type==='text';}).text : '...';
-    sessionHistory.push({role:'assistant',content:reply});
-    saveSessionData();
-    var m = document.getElementById('sessMsgs'); if(m.lastChild) m.removeChild(m.lastChild);
-    appendSessMsg('assistant', reply);
-  }).catch(function(){
-    var m = document.getElementById('sessMsgs'); if(m.lastChild) m.removeChild(m.lastChild);
-    appendSessMsg('assistant','Connection error.');
-  }).finally(function(){ sessLoading = false; document.getElementById('sessSendBtn').disabled = false; });
-}
-
-function appendSessMsg(role, text, silent) {
-  var msgs = document.getElementById('sessMsgs');
-  var div = document.createElement('div'); div.className = 'smsg ' + role;
-  var lbl = document.createElement('div'); lbl.className = 'smsg-label'; lbl.textContent = role === 'user' ? 'You' : 'Coach';
-  var bub = document.createElement('div'); bub.className = 'smsg-bubble'; bub.textContent = text;
-  div.appendChild(lbl); div.appendChild(bub);
-  if (role === 'assistant' && text !== '...') {
-    var acts = document.createElement('div'); acts.className = 'smsg-actions';
-    acts.appendChild(makeAudioBtn(text));
-    div.appendChild(acts);
-  }
-  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
-}
-
-function saveSessionData() {
-  if (!currentDay) return;
-  var existing = getSessions()[currentDay.day] || {};
-  existing.day = currentDay.day;
-  existing.topic = currentDay.topic;
-  existing.icon = currentDay.icon;
-  existing.history = sessionHistory;
-  existing.date = existing.date || new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-  saveSession(currentDay.day, existing);
-}
-
-function generateSummary() {
-  if (!currentDay || sessLoading || summaryLoading) return;
-  if (sessionHistory.length < 2) { alert('Have at least one exchange with the coach before summarizing.'); return; }
-  summaryLoading = true;
-  var sumBtn = document.querySelector('.summarize-btn');
-  sumBtn.textContent = 'Summarizing...'; sumBtn.disabled = true;
-  var summaryPrompt = 'Based on this coaching session for Day ' + currentDay.day + ' on "' + currentDay.topic + '", provide a concise session summary in this exact format:\n\nSTRENGTHS:\n(2-3 things the candidate did well in their answers)\n\nGAPS:\n(2-3 specific areas that need improvement)\n\nKEY CONCEPTS COVERED:\n(bullet list of what was discussed)\n\nFOR NEXT SESSION:\n(1-2 specific things to review or practice before the next session)\n\nOVERALL READINESS: X/10\n\nKeep it practical and specific to what was actually discussed.';
-  var summaryMessages = sessionHistory.concat([{role:'user',content:summaryPrompt}]);
-  fetch(API_URL, {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,system:PLAN_SYSTEM,messages:summaryMessages})
-  }).then(function(r){return r.json();}).then(function(data){
-    var summary = (data.content && data.content.find(function(b){return b.type==='text';})) ? data.content.find(function(b){return b.type==='text';}).text : 'Summary unavailable.';
-    var existing = getSessions()[currentDay.day] || {};
-    existing.summary = summary;
-    existing.summaryDate = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    saveSession(currentDay.day, existing);
-    appendSessMsg('assistant', 'SESSION SUMMARY\n\n' + summary);
-    sumBtn.textContent = '✓ Summarized'; sumBtn.style.color = 'var(--green)'; sumBtn.style.borderColor = 'var(--green)';
-  }).catch(function(){
-    appendSessMsg('assistant','Could not generate summary. Try again.');
-    sumBtn.textContent = '✎ Summarize'; sumBtn.disabled = false;
-  }).finally(function(){ summaryLoading = false; });
-}
-
-function exitSession() {
-  window.speechSynthesis.cancel();
-  document.getElementById('sessionView').style.display = 'none';
-  document.getElementById('planView').style.display = 'block';
+function closeModal() {
+  // autosave on close
+  var ta = document.getElementById('sessionNotesTA');
+  if (ta && currentDay) { sessionNotes[currentDay.day] = ta.value; setData('apai_session_notes', sessionNotes); }
+  document.getElementById('modalOverlay').classList.remove('open');
   renderPlan();
 }
 
-function markSessionDone() {
-  if (!currentDay) return;
-  if (sessionHistory.length >= 2 && !getSessions()[currentDay.day]?.summary) { generateSummary(); }
-  completedDays.add(currentDay.day);
-  localStorage.setItem('apai_completed', JSON.stringify(Array.from(completedDays)));
-  exitSession();
+function markDone() {
+  var ta = document.getElementById('sessionNotesTA');
+  if (ta && currentDay) { sessionNotes[currentDay.day] = ta.value; setData('apai_session_notes', sessionNotes); }
+  if (currentDay) {
+    completedDays.add(currentDay.day);
+    localStorage.setItem('apai_done', JSON.stringify(Array.from(completedDays)));
+  }
+  closeModal();
+  updateHome();
 }
 
-// ── HISTORY ──
-function renderHistory() {
-  var list = document.getElementById('historyList');
-  var sessions = getSessions();
-  var keys = Object.keys(sessions).sort(function(a,b){return parseInt(a)-parseInt(b);});
-  if (keys.length === 0) {
-    list.innerHTML = '<div class="history-empty"><div class="big">No sessions yet</div><div class="sub">Complete a coaching session and click Summarize to see your progress here.</div></div>';
-    return;
-  }
-  list.innerHTML = '';
-  for (var i = 0; i < keys.length; i++) {
-    var s = sessions[keys[i]];
-    list.appendChild(makeHistoryCard(s));
+// ── QUESTIONS ──
+function renderQs() {
+  var list = document.getElementById('qList'); list.innerHTML = '';
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var q = QUESTIONS[i];
+    list.appendChild(makeQCard(q));
   }
 }
 
-function makeHistoryCard(s) {
-  var card = document.createElement('div'); card.className = 'history-card';
-  var hdr = document.createElement('div'); hdr.className = 'history-card-header';
-  var dayNum = document.createElement('div'); dayNum.className = 'history-day-num'; dayNum.textContent = 'Day ' + s.day;
-  var title = document.createElement('div'); title.className = 'history-day-title'; title.textContent = (s.icon||'') + ' ' + (s.topic||'Session');
-  var date = document.createElement('div'); date.className = 'history-date'; date.textContent = s.date || '';
-  var chev = document.createElement('div'); chev.className = 'history-chevron'; chev.textContent = '›';
-  hdr.appendChild(dayNum); hdr.appendChild(title); hdr.appendChild(date); hdr.appendChild(chev);
-  var body = document.createElement('div'); body.className = 'history-body';
+function makeQCard(q) {
+  var card = document.createElement('div'); card.className = 'q-card';
+  var hdr = document.createElement('div'); hdr.className = 'q-card-header';
+  var typeLabel = q.type==='ml'?'ML Design':q.type==='behavioral'?'Behavioral':'Strategy';
+  var badge = document.createElement('span'); badge.className = 'q-type-badge badge-'+q.type; badge.textContent = typeLabel;
+  var title = document.createElement('div'); title.className = 'q-card-title';
+  if (qDone.has(q.id)) { var dot = document.createElement('span'); dot.className = 'q-done-dot'; dot.style.cssText = 'display:inline-block;width:6px;height:6px;border-radius:50%;background:#059669;margin-right:6px;vertical-align:middle'; title.appendChild(dot); }
+  title.appendChild(document.createTextNode(q.title));
+  var co = document.createElement('div'); co.className = 'q-card-co'; co.textContent = q.company;
+  var chev = document.createElement('div'); chev.className = 'q-card-chev'; chev.textContent = '›';
+  hdr.appendChild(badge); hdr.appendChild(title); hdr.appendChild(co); hdr.appendChild(chev);
 
-  if (s.summary) {
-    var sumSection = document.createElement('div'); sumSection.className = 'history-section';
-    var sumLbl = document.createElement('div'); sumLbl.className = 'history-section-label'; sumLbl.textContent = 'AI Session Summary';
-    var sumBox = document.createElement('div'); sumBox.className = 'history-summary-box'; sumBox.textContent = s.summary;
-    var audioActs = document.createElement('div'); audioActs.className = 'smsg-actions'; audioActs.style.marginTop = '8px';
-    audioActs.appendChild(makeAudioBtn(s.summary));
-    sumSection.appendChild(sumLbl); sumSection.appendChild(sumBox); sumSection.appendChild(audioActs);
-    body.appendChild(sumSection);
+  var body = document.createElement('div'); body.className = 'q-card-body';
+  var qtext = document.createElement('div'); qtext.className = 'q-text'; qtext.textContent = q.question;
+
+  // Prompt to copy
+  var promptBox = document.createElement('div'); promptBox.className = 'coaching-prompt'; promptBox.style.marginBottom = '12px';
+  var pl = document.createElement('div'); pl.className = 'coaching-prompt-label'; pl.textContent = 'Practice in Claude.ai';
+  var pt = document.createElement('div'); pt.className = 'coaching-prompt-text';
+  pt.textContent = 'Ask me this interview question and coach me on my answer: "' + q.question + '" I am preparing for Director, Data Science Applied AI at Walmart.';
+  pt.onclick = function(){ copyPrompt(pt); };
+  var ph = document.createElement('div'); ph.className = 'coaching-prompt-hint'; ph.textContent = 'Tap to copy prompt → paste into Claude.ai';
+  promptBox.appendChild(pl); promptBox.appendChild(pt); promptBox.appendChild(ph);
+
+  var hintsDiv = document.createElement('div'); hintsDiv.className = 'q-hints';
+  for (var i = 0; i < q.hints.length; i++) {
+    var hint = document.createElement('div'); hint.className = 'q-hint'; hint.textContent = q.hints[i];
+    hintsDiv.appendChild(hint);
   }
 
-  if (s.history && s.history.length > 0) {
-    var txSection = document.createElement('div'); txSection.className = 'history-section';
-    var txLbl = document.createElement('div'); txLbl.className = 'history-section-label';
-    var userMsgs = s.history.filter(function(m){return m.role==='user';}).length;
-    txLbl.textContent = 'Full Transcript (' + userMsgs + ' of your responses)';
-    var tx = document.createElement('div'); tx.className = 'history-transcript';
-    for (var i = 0; i < s.history.length; i++) {
-      var m = s.history[i];
-      if (m.role === 'system') continue;
-      var msgDiv = document.createElement('div'); msgDiv.className = 'ht-msg ' + m.role;
-      var msgLbl = document.createElement('div'); msgLbl.className = 'ht-msg-label'; msgLbl.textContent = m.role === 'user' ? 'You' : 'Coach';
-      var msgText = document.createElement('div'); msgText.textContent = m.content;
-      msgDiv.appendChild(msgLbl); msgDiv.appendChild(msgText);
-      tx.appendChild(msgDiv);
-    }
-    txSection.appendChild(txLbl); txSection.appendChild(tx);
-    body.appendChild(txSection);
-  }
-
-  hdr.onclick = function() {
-    var isOpen = body.classList.contains('open');
-    body.classList.toggle('open'); chev.classList.toggle('open');
+  // Notes
+  var notesWrap = document.createElement('div'); notesWrap.className = 'q-notes-wrap';
+  var nl = document.createElement('div'); nl.className = 'notes-label'; nl.textContent = 'Your answer notes';
+  var ta = document.createElement('textarea'); ta.className = 'notes-ta';
+  ta.placeholder = 'Paste your answer or key points from your Claude.ai practice session...';
+  ta.value = qNotes[q.id] || ''; ta.rows = 4;
+  var saveBtn = document.createElement('button'); saveBtn.className = 'save-notes-btn'; saveBtn.textContent = 'Save notes';
+  saveBtn.onclick = function() { qNotes[q.id] = ta.value; setData('apai_q_notes', qNotes); saveBtn.textContent = '✓ Saved'; setTimeout(function(){ saveBtn.textContent = 'Save notes'; }, 1500); };
+  var doneBtn = document.createElement('button'); doneBtn.className = 'q-done-toggle' + (qDone.has(q.id)?' done':''); doneBtn.textContent = qDone.has(q.id) ? '✓ Practiced' : 'Mark practiced';
+  doneBtn.onclick = function() {
+    if (qDone.has(q.id)) { qDone.delete(q.id); } else { qDone.add(q.id); }
+    localStorage.setItem('apai_qdone', JSON.stringify(Array.from(qDone)));
+    doneBtn.className = 'q-done-toggle' + (qDone.has(q.id)?' done':'');
+    doneBtn.textContent = qDone.has(q.id) ? '✓ Practiced' : 'Mark practiced';
+    updateHome();
   };
+  var audioBtn = makeAudioBtn(q.question); audioBtn.style.marginLeft = '4px';
+  notesWrap.appendChild(nl); notesWrap.appendChild(ta); notesWrap.appendChild(saveBtn); notesWrap.appendChild(doneBtn); notesWrap.appendChild(audioBtn);
+
+  body.appendChild(qtext); body.appendChild(promptBox); body.appendChild(hintsDiv); body.appendChild(notesWrap);
+
+  hdr.onclick = function() { body.classList.toggle('open'); chev.classList.toggle('open'); };
   card.appendChild(hdr); card.appendChild(body);
   return card;
 }
 
-function clearHistory() {
-  if (confirm('Clear all saved sessions? This cannot be undone.')) {
-    localStorage.removeItem('apai_sessions');
+// ── HISTORY ──
+function renderHistory() {
+  var list = document.getElementById('historyList'); list.innerHTML = '';
+  var allDays = WEEKS.flatMap ? WEEKS.flatMap(function(w){return w.days;}) : [].concat.apply([], WEEKS.map(function(w){return w.days;}));
+  var hasAny = false;
+  for (var i = 0; i < allDays.length; i++) {
+    var d = allDays[i];
+    var notes = sessionNotes[d.day] ? sessionNotes[d.day].trim() : '';
+    if (!notes) continue;
+    hasAny = true;
+    list.appendChild(makeHistoryCard(d, notes));
+  }
+  if (!hasAny) {
+    list.innerHTML = '<div style="text-align:center;padding:4rem 2rem;color:var(--ink3)"><div style="font-size:1.5rem;font-weight:500;color:var(--ink2);margin-bottom:.5rem">No notes yet</div><div style="font-size:13px">Complete a session and save notes to see them here</div></div>';
+  }
+}
+
+function makeHistoryCard(d, notes) {
+  var card = document.createElement('div'); card.className = 'history-card';
+  var hdr = document.createElement('div'); hdr.className = 'history-card-hdr';
+  var dayNum = document.createElement('div'); dayNum.style.cssText = 'font-family:var(--mono);font-size:10px;color:var(--ink3);min-width:40px'; dayNum.textContent = 'Day ' + d.day;
+  var title = document.createElement('div'); title.style.cssText = 'font-size:13px;font-weight:500;color:var(--ink);flex:1'; title.textContent = d.icon + ' ' + d.topic;
+  var statusDot = document.createElement('div'); statusDot.style.cssText = 'font-size:11px;color:' + (completedDays.has(d.day) ? '#15803d' : 'var(--ink3)'); statusDot.textContent = completedDays.has(d.day) ? '✓ Done' : '~ In progress';
+  var chev = document.createElement('div'); chev.style.cssText = 'font-size:12px;color:var(--ink3);transition:transform .2s;margin-left:8px'; chev.textContent = '›';
+  hdr.appendChild(dayNum); hdr.appendChild(title); hdr.appendChild(statusDot); hdr.appendChild(chev);
+
+  var body = document.createElement('div'); body.className = 'history-card-body';
+  var nl = document.createElement('div'); nl.className = 'notes-label'; nl.style.marginBottom = '8px'; nl.textContent = 'Your notes';
+  var nb = document.createElement('div'); nb.className = 'history-notes-block'; nb.textContent = notes;
+  var audioBtn = makeAudioBtn(notes); audioBtn.style.marginTop = '8px';
+  body.appendChild(nl); body.appendChild(nb); body.appendChild(audioBtn);
+
+  hdr.onclick = function() { body.classList.toggle('open'); chev.style.transform = body.classList.contains('open') ? 'rotate(90deg)' : ''; };
+  card.appendChild(hdr); card.appendChild(body);
+  return card;
+}
+
+function clearAllNotes() {
+  if (confirm('Clear all session notes? This cannot be undone.')) {
+    sessionNotes = {}; setData('apai_session_notes', {});
     renderHistory();
   }
 }
 
-// ── ADS QUESTIONS ──
-var QUESTIONS = [
-  {id:1,type:'ml',company:'Walmart',title:'Demand forecasting system design',question:'Design an end-to-end demand forecasting system for Walmart US - covering thousands of stores, millions of SKUs, across grocery, general merchandise, and pharmacy. Walk through your architecture, model choices, and how you measure and continuously improve accuracy.',hints:['Start with problem framing: what are you forecasting, at what granularity, what horizon?','Discuss the hierarchy: national to regional to store to SKU-store','Address cold-start for new items and new stores','Talk about how you handle seasonality, promotions, and external signals'],done:false},
-  {id:2,type:'ml',company:'Walmart',title:'Agentic replenishment system',question:'Walmart wants to move from rule-based replenishment to an agentic AI system that autonomously manages in-store inventory. Design this system: what agents would you build, how would they coordinate, and how would you ensure safety and explainability before full deployment?',hints:['Frame the agent responsibilities: demand forecasting agent, order generation agent, exception handling agent','Discuss multi-agent coordination: shared state, message passing, conflict resolution','Address safety guardrails: when should the agent escalate to a human?','Talk about shadow-deploy and measuring trust before full autonomy'],done:false},
-  {id:3,type:'ml',company:'Google',title:'LLM-powered retail operations',question:'Your team wants to use LLMs to improve operational efficiency for Walmart store associates - inventory queries, task prioritization, and shift handoff summaries. Design the system, focusing on RAG architecture, grounding, and preventing hallucinations in a high-stakes retail context.',hints:['Frame the knowledge base: what data sources feed the RAG system?','Discuss chunking and retrieval strategies for structured vs unstructured retail data','Address hallucination risk: what happens if an associate acts on wrong inventory data?','Talk about evaluation: how do you measure answer quality without ground truth for every query?'],done:false},
-  {id:4,type:'ml',company:'Amazon',title:'Forecasting under disruption',question:'A major supply chain disruption hits - a port closure affects 20% of your SKU assortment for an unknown duration. How does your forecasting system detect this, adapt, and communicate uncertainty to downstream planning systems?',hints:['Discuss anomaly detection: how does your system recognize signal vs noise?','Talk about switching between models: when do you override ML with rules or human judgment?','Address uncertainty quantification: prediction intervals, scenario planning','How do you propagate the forecast change to replenishment, pricing, and allocation?'],done:false},
-  {id:5,type:'behavioral',company:'Walmart',title:'Driving alignment across functions',question:'Tell me about a time you drove alignment on a major ML initiative where engineering, product, merchandising, and finance all had competing priorities. How did you navigate the conflict and what was the outcome?',hints:['Use STAR: Situation, Task, Action, Result','Be specific about what the technical and business tensions were','Explain how you translated ML tradeoffs into language each stakeholder understood','Quantify the outcome - business impact, speed to deployment, or organizational change'],done:false},
-  {id:6,type:'behavioral',company:'Google',title:'Building a high-performing DS team',question:'Describe how you have built or transformed a data science team. What was the state of the team when you took over, what did you change, and how did you measure the team growth and impact?',hints:['Talk about your hiring bar: what did you look for beyond technical skills?','Describe how you set up the technical infrastructure and ways of working','Explain how you handled underperformers or misaligned skill sets','What metrics did you use to measure team health and output quality?'],done:false},
-  {id:7,type:'strategy',company:'Walmart',title:'90-day Applied AI roadmap',question:'You have just joined the Walmart Applied AI team as Director. Walk me through your 90-day plan: how you would assess the current state, identify high-impact opportunities in forecasting and gen AI, build trust with stakeholders, and set up your team for success.',hints:['Frame the 30-60-90 structure: listen and learn, diagnose, start executing','Talk about how you would assess current model quality, tech debt, and team capability','Identify quick wins vs long-term bets in forecasting and gen AI','Explain how you would align with product, engineering, and merchandising leadership'],done:false},
-  {id:8,type:'ml',company:'Amazon',title:'Optimization and ML for fulfillment',question:'Walmart wants to optimize its e-commerce fulfillment network - deciding which warehouse should fulfill each order to minimize cost while meeting delivery SLAs. How would you combine ML forecasting with mathematical optimization to solve this, and how would you measure success?',hints:['Separate the prediction problem from the optimization problem','Discuss predict-then-optimize vs end-to-end approaches','Talk about real-time constraints: live inventory, carrier capacity, SLA windows','Address the business metric: cost per order, on-time delivery rate, customer satisfaction'],done:false}
-];
+// ── HOME ──
+function updateHome() {
+  var done = completedDays.size, pct = Math.round(done/30*100);
+  document.getElementById('statDays').textContent = done;
+  document.getElementById('homeProgVal').textContent = done + ' / 30';
+  document.getElementById('homeProgBar').style.width = pct + '%';
+  document.getElementById('statQs').textContent = qDone.size;
+  var noteCount = Object.keys(sessionNotes).filter(function(k){ return sessionNotes[k] && sessionNotes[k].trim(); }).length;
+  document.getElementById('statNotes').textContent = noteCount;
 
-var adsCurrentQ = null, adsHistory = [], adsLoading = false, adsRevealedHints = [];
-
-function renderQBank() {
-  var bank = document.getElementById('qBank'); bank.innerHTML = '';
-  var doneCnt = QUESTIONS.filter(function(q){return q.done;}).length;
-  for (var i = 0; i < QUESTIONS.length; i++) {
-    var q = QUESTIONS[i];
-    var el = document.createElement('div');
-    el.className = 'q-item' + (adsCurrentQ && adsCurrentQ.id===q.id?' selected':'');
-    (function(qq){el.onclick=function(){loadQuestion(qq);};})(q);
-    var typeLabel = q.type==='ml'?'ML System Design':q.type==='behavioral'?'Behavioral':'Strategy';
-    var typeEl = document.createElement('div'); typeEl.className='q-type '+q.type; typeEl.textContent=typeLabel;
-    var titleEl = document.createElement('div'); titleEl.className='q-title';
-    if(q.done){var dot=document.createElement('span');dot.className='q-done-dot';titleEl.appendChild(dot);}
-    titleEl.appendChild(document.createTextNode(q.title));
-    var coEl = document.createElement('div'); coEl.className='q-company'; coEl.textContent=q.company;
-    el.appendChild(typeEl);el.appendChild(titleEl);el.appendChild(coEl);
-    bank.appendChild(el);
+  // find next incomplete day
+  var allDays = [].concat.apply([], WEEKS.map(function(w){return w.days;}));
+  var nextDay = null;
+  for (var i = 0; i < allDays.length; i++) {
+    var d = allDays[i];
+    if (!completedDays.has(d.day) && d.topic.indexOf('Rest') < 0) { nextDay = d; break; }
   }
-  document.getElementById('homeAdsVal').textContent = doneCnt + ' / 8 done';
-  document.getElementById('homeAdsBar').style.width = Math.round(doneCnt/8*100) + '%';
-}
-
-function loadQuestion(q) {
-  adsCurrentQ=q; adsHistory=[]; adsRevealedHints=[];
-  document.getElementById('adsQArea').style.display='block';
-  document.getElementById('hintsBar').style.display='flex';
-  document.getElementById('adsInputArea').style.display='block';
-  var badge=document.getElementById('qBadge');
-  var typeLabel=q.type==='ml'?'ML System Design':q.type==='behavioral'?'Behavioral':'Strategy';
-  badge.textContent=typeLabel; badge.className='q-badge badge-'+q.type;
-  document.getElementById('qNum').textContent='Q'+q.id+' of '+QUESTIONS.length;
-  document.getElementById('qCo').textContent=q.company;
-  document.getElementById('qText').textContent=q.question;
-  var hc=document.getElementById('hintsContainer'); hc.innerHTML='';
-  for(var i=0;i<q.hints.length;i++){
-    (function(hint,idx){
-      var btn=document.createElement('button');btn.className='hint-pill';btn.textContent='Hint '+(idx+1);
-      btn.onclick=function(){if(adsRevealedHints.indexOf(idx)>=0)return;adsRevealedHints.push(idx);btn.className='hint-revealed';btn.textContent=hint;btn.onclick=null;};
-      hc.appendChild(btn);
-    })(q.hints[i],i);
+  if (nextDay && nextDay.prompt) {
+    document.getElementById('homeDayPrompt').textContent = nextDay.prompt;
   }
-  var chat=document.getElementById('adsChat');chat.innerHTML='';
-  var ed=document.createElement('div');ed.className='msg assistant';
-  var el=document.createElement('div');el.className='msg-label';el.textContent='Coach';
-  var eb=document.createElement('div');eb.className='msg-bubble';eb.textContent='Ready when you are. Take your time - then walk me through your answer.\n\nTip: Restate the problem in your own words and clarify assumptions before diving in.';
-  ed.appendChild(el);ed.appendChild(eb);chat.appendChild(ed);
-  document.getElementById('adsAnswerInput').value='';
-  renderQBank();
 }
 
-function adsSubmit(){
-  var inp=document.getElementById('adsAnswerInput');
-  var text=inp.value.trim();
-  if(!text||!adsCurrentQ)return;
-  adsAppendMsg('user',text);inp.value='';inp.style.height='auto';
-  adsHistory.push({role:'user',content:text});
-  adsGetResponse();
-}
+// close modal on overlay click
+document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-function adsQuick(action){
-  if(!adsCurrentQ)return;
-  adsAppendMsg('user',action);adsHistory.push({role:'user',content:action});
-  adsGetResponse();
-}
-
-function adsGetResponse(){
-  adsLoading=true;document.getElementById('adsSendBtn').disabled=true;
-  var chat=document.getElementById('adsChat');
-  var typing=document.createElement('div');typing.className='msg assistant';typing.id='adsTyping';
-  var tl=document.createElement('div');tl.className='msg-label';tl.textContent='Coach';
-  var ti=document.createElement('div');ti.className='typing-indicator';
-  ti.innerHTML='<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
-  typing.appendChild(tl);typing.appendChild(ti);chat.appendChild(typing);chat.scrollTop=chat.scrollHeight;
-  var sys='You are an elite interview coach for Director-level Data Science roles on Applied AI teams at Walmart, Google, and Amazon. Current question: "'+adsCurrentQ.question+'". Question type: '+adsCurrentQ.type+'. Target company: '+adsCurrentQ.company+'. Be Socratic - push deeper with follow-ups. Be direct about gaps. For ML System Design evaluate: problem framing, technical depth, scalability, measurement rigor. For Strategy: structured thinking, prioritization, stakeholder awareness, execution realism. For Behavioral: STAR structure, specificity, scope, leadership signal. Start with 1-2 genuine strengths, then specific gaps, then follow-up questions. End with: Structure: X/10  Depth: X/10  Business: X/10  Communication: X/10. Keep under 300 words unless model answer is requested.';
-  fetch(API_URL,{
-    method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:adsHistory})
-  }).then(function(r){return r.json();}).then(function(data){
-    var reply=(data.content&&data.content.find(function(b){return b.type==='text';}))?data.content.find(function(b){return b.type==='text';}).text:'Something went wrong.';
-    adsHistory.push({role:'assistant',content:reply});
-    var t=document.getElementById('adsTyping');if(t)t.parentNode.removeChild(t);
-    adsAppendMsg('assistant',reply);adsCurrentQ.done=true;renderQBank();
-  }).catch(function(){
-    var t=document.getElementById('adsTyping');if(t)t.parentNode.removeChild(t);
-    adsAppendMsg('assistant','Connection error. Check your proxy setup.');
-  }).finally(function(){adsLoading=false;document.getElementById('adsSendBtn').disabled=false;});
-}
-
-function adsAppendMsg(role,text){
-  var chat=document.getElementById('adsChat');
-  var div=document.createElement('div');div.className='msg '+role;
-  var lbl=document.createElement('div');lbl.className='msg-label';lbl.textContent=role==='user'?'You':'Coach';
-  var bub=document.createElement('div');bub.className='msg-bubble';bub.textContent=text;
-  div.appendChild(lbl);div.appendChild(bub);
-  if(role==='assistant'){
-    if(text.indexOf('/10')>=0){var scores=extractScores(text);if(scores){var sb=document.createElement('div');sb.className='score-bar';sb.innerHTML=scores;div.appendChild(sb);}}
-    var acts=document.createElement('div');acts.className='msg-actions';acts.appendChild(makeAudioBtn(text));div.appendChild(acts);
-  }
-  chat.appendChild(div);chat.scrollTop=chat.scrollHeight;
-}
-
-function extractScores(text){
-  var dims=['Structure','Depth','Business','Communication'],found=[];
-  for(var i=0;i<dims.length;i++){
-    var m=text.match(new RegExp(dims[i]+'\\**:?\\**\\s*([0-9]+)\\s*/\\s*10','i'));
-    if(m){var v=parseInt(m[1]);var c=v>=8?'good':v>=6?'mid':'low';found.push('<div class="score-item"><div class="score-lbl">'+dims[i]+'</div><div class="score-val '+c+'">'+v+'/10</div></div>');}
-  }
-  return found.length?found.join(''):null;
-}
-
-function updateHomeProgress(){
-  var n=completedDays.size,pct=Math.round(n/30*100);
-  document.getElementById('homeProgressVal').textContent=n+' / 30 days';
-  document.getElementById('homeProgressBar').style.width=pct+'%';
-  var doneCnt=QUESTIONS.filter(function(q){return q.done;}).length;
-  document.getElementById('homeAdsVal').textContent=doneCnt+' / 8 done';
-  document.getElementById('homeAdsBar').style.width=Math.round(doneCnt/8*100)+'%';
-}
-
-document.addEventListener('DOMContentLoaded',function(){
-  if(sessionStorage.getItem('apai_unlocked')==='1'){document.getElementById('pinScreen').style.display='none';}
-  else{setTimeout(function(){document.getElementById('pinInput').focus();},100);}
+document.addEventListener('DOMContentLoaded', function() {
   switchPage('home');
-  renderPlan();renderQBank();updateHomeProgress();
-  document.getElementById('sessInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendSessionMsg();}});
-  document.getElementById('adsAnswerInput').addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,140)+'px';});
-  document.getElementById('adsAnswerInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))adsSubmit();});
+  updateHome();
 });
 </script>
 </body>
