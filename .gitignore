@@ -1,20 +1,17 @@
-# Ignore specific markdown files
+# Private markdown files
 career.md
 current_focus.md
 command.md
 
-# Ignore specific folders
-/Engg Blogs Webinar/
-/Reel Transcriber/
+# Private folders
+Engg Blogs Webinar/
+Reel Transcriber/
 
-# Common ignores
+# System & environment
 .DS_Store
+**/.DS_Store
 .env
+
+# Python
 __pycache__/
 *.pyc
-**/.DS_Store
-
-# Ignore inside projects/
-projects/Engg Blogs Webinar/
-projects/Reel Transcriber/
-projects/.DS_Store
