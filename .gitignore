@@ -13,3 +13,8 @@ command.md
 __pycache__/
 *.pyc
 **/.DS_Store
+
+# Ignore inside projects/
+projects/Engg Blogs Webinar/
+projects/Reel Transcriber/
+projects/.DS_Store
