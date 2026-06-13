@@ -1,0 +1,12 @@
+Here is a summarized version of the transcript:
+
+**TL;DR:** Designing an access system for 10 million documents with under 2-second latency.
+
+**Key Points:**
+
+1. Ingestion stage: Pass incoming PDFs, stocks, or web pages through deduplication and chunking to reduce storage waste and improve retrieval quality.
+2. Embeddings are generated in batches and stored in an A&N index for fast retrieval.
+3. Query path: Use hybrid retrieval (exact keyword search + dense vector retrieval) to merge results and re-rank candidates using a stronger model.
+4. To stay under 2-second latency, apply metadata filters before retrieval and use A&N instead of exact nearest neighbors search.
+
+**Who is this useful for:** This design is useful for anyone looking to build an efficient access system for large-scale document collections with fast query times.

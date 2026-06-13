@@ -1,0 +1,15 @@
+Here is a summarized version of the transcript:
+
+**TL;DR**: Your language model pipeline can break in 7 ways, but there are solutions to handle each issue.
+
+**Key Points:**
+
+1. **No chunks retrieved at all**: Fix by setting a fallback chain, including retrying the query and then falling back to keyword search.
+2. **LLM makes up wrong answers**: Prevent by adding a similarity score threshold and re-ranking chunks before passing them to LLM.
+3. **LLM hangs or times out**: Fix by setting a hard timeout (e.g., 10 seconds) and implementing exponential backoff for too many requests.
+4. **Context limits exceeded**: Use adaptive prompting to estimate token count and trim context if necessary.
+5. **Incorrect answers generated**: Core the answer against retrieved chunks after generation, and set a grounding score threshold to prevent delivery of incorrect answers.
+
+**Who is this useful for?**
+
+This content is useful for developers working with language models and natural language processing (NLP) pipelines who want to improve their pipeline's reliability and accuracy.
