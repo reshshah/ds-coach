@@ -1,0 +1,14 @@
+# Ignore specific markdown files
+career.md
+current_focus.md
+command.md
+
+# Ignore specific folders
+/Engg Blogs Webinar/
+/Reel Transcriber/
+
+# Common ignores
+.DS_Store
+.env
+__pycache__/
+*.pyc
