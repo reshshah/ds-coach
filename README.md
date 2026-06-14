@@ -22,7 +22,7 @@ End-to-end build guides for production ML systems — the kind of architecture d
 
 ```
 projects/
-└── Personalization Framework/
+└── agentops-churn-prediction/
     ├── README.md                        ← architecture overview
     └── agentops_churn_project_setup.md  ← 10-week production build guide
 ```
