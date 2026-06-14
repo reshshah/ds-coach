@@ -985,7 +985,7 @@ The static pipeline (weeks 1–6) is your working foundation. Validate end-to-en
 
 ---
 
-## Director-Level Context: Why This Architecture
+## Why This Architecture
 
 **The model is not the hard problem.** XGBoost on churn has been solved. The hard problems are feature freshness, auditability, and the decision layer above the model.
 

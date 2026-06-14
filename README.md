@@ -27,7 +27,7 @@ projects/
     └── agentops_churn_project_setup.md  ← 10-week production build guide
 ```
 
-Each guide covers: system design decisions and tradeoffs, full folder structure, working code for every layer, CI setup, and the director-level context for *why* the architecture is built the way it is — not just what it does.
+Each guide covers: system design decisions and tradeoffs, full folder structure, working code for every layer, CI setup, and the engineering rationale for *why* the architecture is built the way it is — not just what it does.
 
 ---
 
